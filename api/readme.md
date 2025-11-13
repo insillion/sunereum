@@ -1,5 +1,10 @@
 Following APIs are available for integration:
 
+### Brokers
+
+### Underwriter
+
+
 |# | API | Description |
 |:--:|:--:|:--|
 |1|[auth](./01-Auth.md)| Authentication request & response|

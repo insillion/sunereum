@@ -1,4 +1,4 @@
-# tmpl-api
+# Sunereum Labs API Kit
 Insillion API Kit for 3rd party integration
-Contact support@insillion.com for details
+Contact () for details
 
