@@ -3,7 +3,7 @@ Following APIs are available for integration:
 ### Brokers
 |# | API | Description |
 |:--:|:--:|:--|
-|1|[Auth](./01-Auth.md)| Authentication Request & Response|
+|1|[Auth](/01-Auth.md)| Authentication Request & Response|
 |2|[Quote-Save](./02-quote-save.md)| Quote Save Request & Response|
 |3|[O&M Document](./03-O&M-document.md)| O & M Document Request & Response|
 |4|[Loss Run](./04-loss-runs-from-site-document.md)| Cash Loss Run Document Upload Request & Response|
