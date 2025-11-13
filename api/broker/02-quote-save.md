@@ -79,9 +79,9 @@ The request body must be in JSON format and should include the following fields:
 
 **Example Request Body**:
 
-` json
+``` json
 {
-    "product_id": "M000000000004",
+    "product_id": "M000000000005",
     "customer_first_name": "Rio",
     "customer_last_name": "R",
     "customer_email": "rio@anc.com",
@@ -143,7 +143,7 @@ The request body must be in JSON format and should include the following fields:
     "percent_exposure": "1"
 }
 
- `
+ ```
 
 #### Sample Response Format
 
@@ -168,14 +168,14 @@ On a successful request, the API will return a JSON response with the following 
 
 **Example Response**:
 
-` json
+``` json
 {
     "status": 0,
     "txt": "",
     "data": [
         {
             "policy_id": "P000000000131",
-            "product_id": "M000000000004",
+            "product_id": "M000000000005",
             "wf_id": 7,
             "product_group_id": "PG000000000001",
             "par_product_id": "M000000000001",
@@ -991,6 +991,6 @@ On a successful request, the API will return a JSON response with the following 
         }
     ]
 }
- `
+ ```
 
 This endpoint is essential for initiating the insurance quoting process and will return all relevant details needed for further processing or user interaction.

@@ -1,7 +1,7 @@
 {
 	"info": {
-		"_postman_id": "ffefd341-fbe6-413e-be97-17ddb144c852",
-		"name": "Sunereum R&R Rater",
+		"_postman_id": "b40e14c9-7286-4998-989b-19350d6f0d60",
+		"name": "Sunereum R&R Rater  SB",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -31,7 +31,7 @@
 							},
 							{
 								"key": "Accept-Language",
-								"value": "en-US,en;q=0.9"
+								"value": "en-GB,en-US;q=0.9,en;q=0.8"
 							},
 							{
 								"key": "Cache-Control",
@@ -47,7 +47,7 @@
 							},
 							{
 								"key": "Origin",
-								"value": "https://ifli.sb.insillion.com"
+								"value": "https://sunereum.sb.insillion.com"
 							},
 							{
 								"key": "Pragma",
@@ -55,7 +55,7 @@
 							},
 							{
 								"key": "Referer",
-								"value": "https://ifli.sb.insillion.com/bb1/home"
+								"value": "https://sunereum.sb.insillion.com/bb1/home"
 							},
 							{
 								"key": "Sec-Fetch-Dest",
@@ -71,7 +71,7 @@
 							},
 							{
 								"key": "User-Agent",
-								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36"
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36"
 							},
 							{
 								"key": "in-auth-token",
@@ -79,7 +79,7 @@
 							},
 							{
 								"key": "sec-ch-ua",
-								"value": "\"Google Chrome\";v=\"137\", \"Chromium\";v=\"137\", \"Not/A)Brand\";v=\"24\""
+								"value": "\"Not;A=Brand\";v=\"99\", \"Google Chrome\";v=\"139\", \"Chromium\";v=\"139\""
 							},
 							{
 								"key": "sec-ch-ua-mobile",
@@ -95,9 +95,13 @@
 							"raw": "{\r\n    \"email\": {{email}},\r\n    \"mpwd\": {{mpwd}}\r\n}"
 						},
 						"url": {
-							"raw": "{{base_url}}/api/v1/auth",
+							"raw": "https://sunereum.sb.insillion.com/api/v1/auth",
+							"protocol": "https",
 							"host": [
-								"{{base_url}}"
+								"sunereum",
+								"sb",
+								"insillion",
+								"com"
 							],
 							"path": [
 								"api",
@@ -207,12 +211,16 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"product_id\": \"M000000000004\",\r\n    \"customer_first_name\": \"Rio\",\r\n    \"customer_last_name\": \"R\",\r\n    \"customer_email\": \"rio@anc.com\",\r\n    \"customer_phone\": \"9887989898\",\r\n    \"company_name\": \"Rio Company\",\r\n    \"comapany_address_line1\": \"r street\",\r\n    \"company_address_line2\": \"io post\",\r\n    \"company_city\": \"chennai\",\r\n    \"company_state\": \"tamilnadu\",\r\n    \"company_postal_code\": \"400001\",\r\n    \"location_state\": \"New York\",\r\n    \"coverage\": \"Contents\",\r\n    \"property_still_under_construction\": \"No\",\r\n    \"watchperson_service_availed\": \"Central Station\",\r\n    \"extended_coverage\": \"Yes\",\r\n    \"location_city\": \"Nassau\",\r\n     \"location_site_number\": \"3453534\",\r\n    \"location_site_name\": \"Rio site\",\r\n    \"location_address_line1\": \"Rio add 1\",\r\n    \"location_address_line2\": \"Rio add 2\",\r\n    \"location_county\": \"Nassau\",\r\n    \"location_zip\": \"11204\",\r\n    \"location_lat_long\": \"Lat long\",\r\n    \"commercial_operating_date\": \"10-11-2025\",\r\n    \"dc_mw\": \"DC\",\r\n    \"ac_mw\": \"AD\",\r\n    \"annual_output_mwh\": \"MWH\",\r\n    \"mounting_type\": \"tracker\",\r\n    \"inverter_make\": \"IM\",\r\n    \"module_make\": \"MM\",\r\n    \"oandm_provider\": \"O&M\",\r\n    \"property_tiv\": \"TIVP\",\r\n    \"annual_revenue_tiv\": \"TIVAR\",\r\n    \"primary_insurer\": \"Rio Raj\",\r\n    \"bi_waiting_period\": \"BI\",\r\n    \"notes\": \"Notes\",\r\n    \"panel_type\": \"Ground Mounted\",\r\n    \"theft\": \"Excluded\",\r\n    \"restoration_period_extension_in_days\": \"30\",\r\n    \"waiting_period\": \"11-15 Days\",\r\n    \"optional_coverage\": \"Monthly Period of Indemnity\",\r\n    \"commercial_property\": \"1500000\",\r\n    \"business_interruption\": \"100000\",\r\n    \"equipment_breakdown_limit\": \"100000\",\r\n    \"eb_expediting_expense_sublimit\": \"50000\",\r\n    \"insurers_coinsurance\": \"1\",\r\n    \"monthly_limitation\": \"\",\r\n    \"earthquake_coverage\": \"Yes\",\r\n    \"special_perils\": \"Yes\",\r\n    \"broad_perils\": \"Yes\",\r\n    \"equipment_breakdown\": \"Yes\",\r\n    \"flood_coverage\": \"Yes\",\r\n    \"all_other_deductible\": \"5000\",\r\n    \"earthquake_deductible\": \"0.1\",\r\n    \"flood_deductible\": \"0.1\",\r\n    \"business_interruption_deductible_in_days\": \"30\",\r\n    \"equipment_breakdown_deductible_in_dollars\": \"75000\",\r\n    \"soft_cost__extra_expense_deductible\": \"10\",\r\n    \"percent_exposure\": \"1\"\r\n}"
+							"raw": "{\r\n    \"product_id\": \"M000000000005\",\r\n    \"customer_first_name\": \"Rio\",\r\n    \"customer_last_name\": \"R\",\r\n    \"customer_email\": \"rio@anc.com\",\r\n    \"customer_phone\": \"9887989898\",\r\n    \"company_name\": \"Rio Company\",\r\n    \"comapany_address_line1\": \"r street\",\r\n    \"company_address_line2\": \"io post\",\r\n    \"company_city\": \"chennai\",\r\n    \"company_state\": \"tamilnadu\",\r\n    \"company_postal_code\": \"400001\",\r\n    \"location_state\": \"New York\",\r\n    \"coverage\": \"Contents\",\r\n    \"property_still_under_construction\": \"No\",\r\n    \"watchperson_service_availed\": \"Central Station\",\r\n    \"extended_coverage\": \"Yes\",\r\n    \"location_city\": \"Nassau\",\r\n     \"location_site_number\": \"3453534\",\r\n    \"location_site_name\": \"Rio site\",\r\n    \"location_address_line1\": \"Rio add 1\",\r\n    \"location_address_line2\": \"Rio add 2\",\r\n    \"location_county\": \"Nassau\",\r\n    \"location_zip\": \"11204\",\r\n    \"location_lat_long\": \"Lat long\",\r\n    \"commercial_operating_date\": \"10-11-2025\",\r\n    \"dc_mw\": \"DC\",\r\n    \"ac_mw\": \"AD\",\r\n    \"annual_output_mwh\": \"MWH\",\r\n    \"mounting_type\": \"tracker\",\r\n    \"inverter_make\": \"IM\",\r\n    \"module_make\": \"MM\",\r\n    \"oandm_provider\": \"O&M\",\r\n    \"property_tiv\": \"TIVP\",\r\n    \"annual_revenue_tiv\": \"TIVAR\",\r\n    \"primary_insurer\": \"Rio Raj\",\r\n    \"bi_waiting_period\": \"BI\",\r\n    \"notes\": \"Notes\",\r\n    \"panel_type\": \"Ground Mounted\",\r\n    \"theft\": \"Excluded\",\r\n    \"restoration_period_extension_in_days\": \"30\",\r\n    \"waiting_period\": \"11-15 Days\",\r\n    \"optional_coverage\": \"Monthly Period of Indemnity\",\r\n    \"commercial_property\": \"1500000\",\r\n    \"business_interruption\": \"100000\",\r\n    \"equipment_breakdown_limit\": \"100000\",\r\n    \"eb_expediting_expense_sublimit\": \"50000\",\r\n    \"insurers_coinsurance\": \"1\",\r\n    \"monthly_limitation\": \"\",\r\n    \"earthquake_coverage\": \"Yes\",\r\n    \"special_perils\": \"Yes\",\r\n    \"broad_perils\": \"Yes\",\r\n    \"equipment_breakdown\": \"Yes\",\r\n    \"flood_coverage\": \"Yes\",\r\n    \"all_other_deductible\": \"5000\",\r\n    \"earthquake_deductible\": \"0.1\",\r\n    \"flood_deductible\": \"0.1\",\r\n    \"business_interruption_deductible_in_days\": \"30\",\r\n    \"equipment_breakdown_deductible_in_dollars\": \"75000\",\r\n    \"soft_cost__extra_expense_deductible\": \"10\",\r\n    \"percent_exposure\": \"1\"\r\n}"
 						},
 						"url": {
-							"raw": "{{base_url}}/api/v1/quote",
+							"raw": "https://sunereum.sb.insillion.com/api/v1/quote",
+							"protocol": "https",
 							"host": [
-								"{{base_url}}"
+								"sunereum",
+								"sb",
+								"insillion",
+								"com"
 							],
 							"path": [
 								"api",
@@ -324,9 +332,13 @@
 							]
 						},
 						"url": {
-							"raw": "{{base_url}}/api/v1/document/attach",
+							"raw": "https://sunereum.sb.insillion.com/api/v1/document/attach",
+							"protocol": "https",
 							"host": [
-								"{{base_url}}"
+								"sunereum",
+								"sb",
+								"insillion",
+								"com"
 							],
 							"path": [
 								"api",
@@ -439,9 +451,13 @@
 							]
 						},
 						"url": {
-							"raw": "{{base_url}}/api/v1/document/attach",
+							"raw": "https://sunereum.sb.insillion.com/api/v1/document/attach",
+							"protocol": "https",
 							"host": [
-								"{{base_url}}"
+								"sunereum",
+								"sb",
+								"insillion",
+								"com"
 							],
 							"path": [
 								"api",
@@ -555,9 +571,13 @@
 							"raw": "{\r\n    \"quote_id\":{{quote_id}},\r\n    \"customer_first_name\": \"Rio\",\r\n    \"customer_last_name\": \"R\",\r\n    \"customer_email\": \"rio@anc.com\",\r\n    \"customer_phone\": \"9887989898\",\r\n    \"company_name\": \"Rio Company\",\r\n    \"comapany_address_line1\": \"r street\",\r\n    \"company_address_line2\": \"io post\",\r\n    \"company_city\": \"chennai\",\r\n    \"company_state\": \"tamilnadu\",\r\n    \"company_postal_code\": \"400001\",\r\n    \"location_state\": \"New York\",\r\n    \"coverage\": \"Contents\",\r\n    \"property_still_under_construction\": \"No\",\r\n    \"watchperson_service_availed\": \"Central Station\",\r\n    \"extended_coverage\": \"Yes\",\r\n    \"location_city\": \"Nassau\",\r\n     \"location_site_number\": \"3453534\",\r\n    \"location_site_name\": \"Rio site\",\r\n    \"location_address_line1\": \"Rio add 1\",\r\n    \"location_address_line2\": \"Rio add 2\",\r\n    \"location_county\": \"Nassau\",\r\n    \"location_zip\": \"11204\",\r\n    \"location_lat_long\": \"Lat long\",\r\n    \"commercial_operating_date\": \"10-11-2025\",\r\n    \"dc_mw\": \"DC\",\r\n    \"ac_mw\": \"AD\",\r\n    \"annual_output_mwh\": \"MWH\",\r\n    \"mounting_type\": \"tracker\",\r\n    \"inverter_make\": \"IM\",\r\n    \"module_make\": \"MM\",\r\n    \"oandm_provider\": \"O&M\",\r\n    \"property_tiv\": \"TIVP\",\r\n    \"annual_revenue_tiv\": \"TIVAR\",\r\n    \"primary_insurer\": \"Rio Raj\",\r\n    \"bi_waiting_period\": \"BI\",\r\n    \"notes\": \"Notes\",\r\n    \"panel_type\": \"Ground Mounted\",\r\n    \"theft\": \"Excluded\",\r\n    \"restoration_period_extension_in_days\": \"30\",\r\n    \"waiting_period\": \"11-15 Days\",\r\n    \"optional_coverage\": \"Monthly Period of Indemnity\",\r\n    \"commercial_property\": \"1500000\",\r\n    \"business_interruption\": \"100000\",\r\n    \"equipment_breakdown_limit\": \"100000\",\r\n    \"eb_expediting_expense_sublimit\": \"50000\",\r\n    \"insurers_coinsurance\": \"1\",\r\n    \"monthly_limitation\": \"\",\r\n    \"earthquake_coverage\": \"Yes\",\r\n    \"special_perils\": \"Yes\",\r\n    \"broad_perils\": \"Yes\",\r\n    \"equipment_breakdown\": \"Yes\",\r\n    \"flood_coverage\": \"Yes\",\r\n    \"all_other_deductible\": \"5000\",\r\n    \"earthquake_deductible\": \"0.1\",\r\n    \"flood_deductible\": \"0.1\",\r\n    \"business_interruption_deductible_in_days\": \"30\",\r\n    \"equipment_breakdown_deductible_in_dollars\": \"75000\",\r\n    \"soft_cost__extra_expense_deductible\": \"10\",\r\n    \"percent_exposure\": \"1\",\r\n    \"__finalize\": 1\r\n}"
 						},
 						"url": {
-							"raw": "{{base_url}}/api/v1/quote",
+							"raw": "https://sunereum.sb.insillion.com/api/v1/quote",
+							"protocol": "https",
 							"host": [
-								"{{base_url}}"
+								"sunereum",
+								"sb",
+								"insillion",
+								"com"
 							],
 							"path": [
 								"api",
@@ -626,9 +646,13 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{base_url}}/api/v1/policy?quote_id={{quote_id}}&x=1",
+							"raw": "https://sunereum.sb.insillion.com/api/v1/policy?quote_id={{quote_id}}&x=1",
+							"protocol": "https",
 							"host": [
-								"{{base_url}}"
+								"sunereum",
+								"sb",
+								"insillion",
+								"com"
 							],
 							"path": [
 								"api",
@@ -724,9 +748,13 @@
 							"raw": "{\r\n    \"proposal_id\": {{proposal_id}},\r\n    \"customer_first_name\": \"Rio\",\r\n    \"customer_last_name\": \"R\",\r\n    \"customer_email\": \"rio@anc.com\",\r\n    \"customer_phone\": \"9887989898\",\r\n    \"company_name\": \"Rio Company\",\r\n    \"comapany_address_line1\": \"r street\",\r\n    \"company_address_line2\": \"io post\",\r\n    \"company_city\": \"chennai\",\r\n    \"company_state\": \"tamilnadu\",\r\n    \"company_postal_code\": \"400001\",\r\n    \"location_state\": \"New York\",\r\n    \"coverage\": \"Contents\",\r\n    \"property_still_under_construction\": \"No\",\r\n    \"watchperson_service_availed\": \"Central Station\",\r\n    \"extended_coverage\": \"Yes\",\r\n    \"location_city\": \"Nassau\",\r\n     \"location_site_number\": \"3453534\",\r\n    \"location_site_name\": \"Rio site\",\r\n    \"location_address_line1\": \"Rio add 1\",\r\n    \"location_address_line2\": \"Rio add 2\",\r\n    \"location_county\": \"Nassau\",\r\n    \"location_zip\": \"11204\",\r\n    \"location_lat_long\": \"Lat long\",\r\n    \"commercial_operating_date\": \"10-11-2025\",\r\n    \"dc_mw\": \"DC\",\r\n    \"ac_mw\": \"AD\",\r\n    \"annual_output_mwh\": \"MWH\",\r\n    \"mounting_type\": \"tracker\",\r\n    \"inverter_make\": \"IM\",\r\n    \"module_make\": \"MM\",\r\n    \"oandm_provider\": \"O&M\",\r\n    \"property_tiv\": \"TIVP\",\r\n    \"annual_revenue_tiv\": \"TIVAR\",\r\n    \"primary_insurer\": \"Rio Raj\",\r\n    \"bi_waiting_period\": \"BI\",\r\n    \"notes\": \"Notes\",\r\n    \"panel_type\": \"Ground Mounted\",\r\n    \"theft\": \"Excluded\",\r\n    \"restoration_period_extension_in_days\": \"30\",\r\n    \"distance_for_fire_department_in_miles\":\"80\",\r\n    \"distance_from_the_fire_hydrant_in_feet\":\"888\",\r\n    \"waiting_period\": \"11-15 Days\",\r\n    \"optional_coverage\": \"Monthly Period of Indemnity\",\r\n    \"commercial_property\": \"1500000\",\r\n    \"business_interruption\": \"100000\",\r\n    \"equipment_breakdown_limit\": \"100000\",\r\n    \"eb_expediting_expense_sublimit\": \"50000\",\r\n    \"insurers_coinsurance\": \"1\",\r\n    \"earthquake_coverage\": \"Yes\",\r\n    \"special_perils\": \"Yes\",\r\n    \"broad_perils\": \"Yes\",\r\n    \"equipment_breakdown\": \"Yes\",\r\n    \"flood_coverage\": \"Yes\",\r\n    \"all_other_deductible\": \"5000\",\r\n    \"earthquake_deductible\": \"0.1\",\r\n    \"flood_deductible\": \"0.1\",\r\n    \"business_interruption_deductible_in_days\": \"30\",\r\n    \"equipment_breakdown_deductible_in_dollars\": \"75000\",\r\n    \"soft_cost__extra_expense_deductible\": \"10\",\r\n    \"percent_exposure\": \"1\"\r\n}"
 						},
 						"url": {
-							"raw": "{{base_url}}/api/v1/proposal",
+							"raw": "https://sunereum.sb.insillion.com/api/v1/proposal",
+							"protocol": "https",
 							"host": [
-								"{{base_url}}"
+								"sunereum",
+								"sb",
+								"insillion",
+								"com"
 							],
 							"path": [
 								"api",
@@ -843,9 +871,13 @@
 							"raw": "{\r\n    \"proposal_id\": {{proposal_id}},\r\n    \"customer_first_name\": \"Rio\",\r\n    \"customer_last_name\": \"R\",\r\n    \"customer_email\": \"rio@anc.com\",\r\n    \"customer_phone\": \"9887989898\",\r\n    \"company_name\": \"Rio Company\",\r\n    \"comapany_address_line1\": \"r street\",\r\n    \"company_address_line2\": \"io post\",\r\n    \"company_city\": \"chennai\",\r\n    \"company_state\": \"tamilnadu\",\r\n    \"company_postal_code\": \"400001\",\r\n    \"location_state\": \"New York\",\r\n    \"coverage\": \"Contents\",\r\n    \"property_still_under_construction\": \"No\",\r\n    \"watchperson_service_availed\": \"Central Station\",\r\n    \"extended_coverage\": \"Yes\",\r\n    \"location_city\": \"Nassau\",\r\n     \"location_site_number\": \"3453534\",\r\n    \"location_site_name\": \"Rio site\",\r\n    \"location_address_line1\": \"Rio add 1\",\r\n    \"location_address_line2\": \"Rio add 2\",\r\n    \"location_county\": \"Nassau\",\r\n    \"location_zip\": \"11204\",\r\n    \"location_lat_long\": \"Lat long\",\r\n    \"commercial_operating_date\": \"10-11-2025\",\r\n    \"dc_mw\": \"DC\",\r\n    \"ac_mw\": \"AD\",\r\n    \"annual_output_mwh\": \"MWH\",\r\n    \"mounting_type\": \"tracker\",\r\n    \"inverter_make\": \"IM\",\r\n    \"module_make\": \"MM\",\r\n    \"oandm_provider\": \"O&M\",\r\n    \"property_tiv\": \"TIVP\",\r\n    \"annual_revenue_tiv\": \"TIVAR\",\r\n    \"primary_insurer\": \"Rio Raj\",\r\n    \"bi_waiting_period\": \"BI\",\r\n    \"notes\": \"Notes\",\r\n    \"panel_type\": \"Ground Mounted\",\r\n    \"theft\": \"Excluded\",\r\n    \"restoration_period_extension_in_days\": \"30\",\r\n    \"distance_for_fire_department_in_miles\":\"80\",\r\n    \"distance_from_the_fire_hydrant_in_feet\":\"888\",\r\n    \"waiting_period\": \"11-15 Days\",\r\n    \"optional_coverage\": \"Monthly Period of Indemnity\",\r\n    \"commercial_property\": \"1500000\",\r\n    \"business_interruption\": \"100000\",\r\n    \"equipment_breakdown_limit\": \"100000\",\r\n    \"eb_expediting_expense_sublimit\": \"50000\",\r\n    \"insurers_coinsurance\": \"1\",\r\n    \"earthquake_coverage\": \"Yes\",\r\n    \"special_perils\": \"Yes\",\r\n    \"broad_perils\": \"Yes\",\r\n    \"equipment_breakdown\": \"Yes\",\r\n    \"flood_coverage\": \"Yes\",\r\n    \"all_other_deductible\": \"5000\",\r\n    \"earthquake_deductible\": \"0.1\",\r\n    \"flood_deductible\": \"0.1\",\r\n    \"business_interruption_deductible_in_days\": \"30\",\r\n    \"equipment_breakdown_deductible_in_dollars\": \"75000\",\r\n    \"soft_cost__extra_expense_deductible\": \"10\",\r\n    \"percent_exposure\": \"1\",\r\n    \"__finalize\": 1\r\n}"
 						},
 						"url": {
-							"raw": "{{base_url}}/api/v1/proposal",
+							"raw": "https://sunereum.sb.insillion.com/api/v1/proposal",
+							"protocol": "https",
 							"host": [
-								"{{base_url}}"
+								"sunereum",
+								"sb",
+								"insillion",
+								"com"
 							],
 							"path": [
 								"api",
@@ -931,9 +963,13 @@
 							"raw": "{\r\n    \"key\": {{payment_id}},\r\n    \"amount\": {{final_premium}}\r\n}"
 						},
 						"url": {
-							"raw": "{{base_url}}/api/v1/payment/cash",
+							"raw": "https://sunereum.sb.insillion.com/api/v1/payment/cash",
+							"protocol": "https",
 							"host": [
-								"{{base_url}}"
+								"sunereum",
+								"sb",
+								"insillion",
+								"com"
 							],
 							"path": [
 								"api",
@@ -973,7 +1009,7 @@
 							},
 							{
 								"key": "Accept-Language",
-								"value": "en-US,en;q=0.9"
+								"value": "en-GB,en-US;q=0.9,en;q=0.8"
 							},
 							{
 								"key": "Cache-Control",
@@ -989,7 +1025,7 @@
 							},
 							{
 								"key": "Origin",
-								"value": "https://ifli.sb.insillion.com"
+								"value": "https://sunereum.sb.insillion.com"
 							},
 							{
 								"key": "Pragma",
@@ -997,7 +1033,7 @@
 							},
 							{
 								"key": "Referer",
-								"value": "https://ifli.sb.insillion.com/bb1/home"
+								"value": "https://sunereum.sb.insillion.com/bb1/home"
 							},
 							{
 								"key": "Sec-Fetch-Dest",
@@ -1013,7 +1049,7 @@
 							},
 							{
 								"key": "User-Agent",
-								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36"
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36"
 							},
 							{
 								"key": "in-auth-token",
@@ -1021,7 +1057,7 @@
 							},
 							{
 								"key": "sec-ch-ua",
-								"value": "\"Google Chrome\";v=\"137\", \"Chromium\";v=\"137\", \"Not/A)Brand\";v=\"24\""
+								"value": "\"Not;A=Brand\";v=\"99\", \"Google Chrome\";v=\"139\", \"Chromium\";v=\"139\""
 							},
 							{
 								"key": "sec-ch-ua-mobile",
@@ -1034,12 +1070,16 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"email\": {{email}},\r\n    \"mpwd\": {{mpwd}},\r\n    \"otp\": \"\",\r\n    \"alias\": \"\",\r\n    \"totp\": \"\"\r\n}"
+							"raw": "{\r\n    \"email\": {{email}},\r\n    \"mpwd\": {{mpwd}}\r\n}"
 						},
 						"url": {
-							"raw": "{{base_url}}/api/v1/auth",
+							"raw": "https://sunereum.sb.insillion.com/api/v1/auth",
+							"protocol": "https",
 							"host": [
-								"{{base_url}}"
+								"sunereum",
+								"sb",
+								"insillion",
+								"com"
 							],
 							"path": [
 								"api",
@@ -1106,9 +1146,13 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{base_url}}/api/v1/policy?quote_id=Q000000000131&x=1",
+							"raw": "https://sunereum.sb.insillion.com/api/v1/policy?quote_id=Q000000000213&x=1",
+							"protocol": "https",
 							"host": [
-								"{{base_url}}"
+								"sunereum",
+								"sb",
+								"insillion",
+								"com"
 							],
 							"path": [
 								"api",
@@ -1118,7 +1162,7 @@
 							"query": [
 								{
 									"key": "quote_id",
-									"value": "Q000000000131"
+									"value": "Q000000000213"
 								},
 								{
 									"key": "x",
@@ -1204,9 +1248,13 @@
 							"raw": "{\r\n    \"quote_id\": {{quote_id}}\r\n}"
 						},
 						"url": {
-							"raw": "{{base_url}}/api/v1/quote/claim",
+							"raw": "https://sunereum.sb.insillion.com/api/v1/quote/claim",
+							"protocol": "https",
 							"host": [
-								"{{base_url}}"
+								"sunereum",
+								"sb",
+								"insillion",
+								"com"
 							],
 							"path": [
 								"api",
@@ -1293,9 +1341,13 @@
 							"raw": "{\r\n    \"quote_id\":{{quote_id}},\r\n    \"customer_first_name\": \"Rio\",\r\n    \"customer_last_name\": \"R\",\r\n    \"customer_email\": \"rio@anc.com\",\r\n    \"customer_phone\": \"9887989898\",\r\n    \"company_name\": \"Rio Company\",\r\n    \"comapany_address_line1\": \"r street\",\r\n    \"company_address_line2\": \"io post\",\r\n    \"company_city\": \"chennai\",\r\n    \"company_state\": \"tamilnadu\",\r\n    \"company_postal_code\": \"400001\",\r\n    \"location_state\": \"New York\",\r\n    \"construction_type\": \"Frame\",\r\n    \"coverage\": \"Contents\",\r\n    \"property_still_under_construction\": \"No\",\r\n    \"watchperson_service_availed\": \"Central Station\",\r\n    \"extended_coverage\": \"Yes\",\r\n    \"location_city\": \"Nassau\",\r\n     \"location_site_number\": \"3453534\",\r\n    \"location_site_name\": \"Rio site\",\r\n    \"location_address_line1\": \"Rio add 1\",\r\n    \"location_address_line2\": \"Rio add 2\",\r\n    \"location_county\": \"Nassau\",\r\n    \"location_zip\": \"11204\",\r\n    \"location_lat_long\": \"Lat long\",\r\n    \"commercial_operating_date\": \"10-11-2025\",\r\n    \"dc_mw\": \"DC\",\r\n    \"ac_mw\": \"AD\",\r\n    \"annual_output_mwh\": \"MWH\",\r\n    \"mounting_type\": \"tracker\",\r\n    \"inverter_make\": \"IM\",\r\n    \"module_make\": \"MM\",\r\n    \"oandm_provider\": \"O&M\",\r\n    \"property_tiv\": \"TIVP\",\r\n    \"annual_revenue_tiv\": \"TIVAR\",\r\n    \"primary_insurer\": \"Rio Raj\",\r\n    \"bi_waiting_period\": \"BI\",\r\n    \"notes\": \"Notes\",\r\n    \"panel_type\": \"Ground Mounted\",\r\n    \"theft\": \"Excluded\",\r\n    \"restoration_period_extension_in_days\": \"30\",\r\n    \"waiting_period\": \"11-15 Days\",\r\n    \"optional_coverage\": \"Monthly Period of Indemnity\",\r\n    \"commercial_property\": \"1500000\",\r\n    \"business_interruption\": \"100000\",\r\n    \"equipment_breakdown_limit\": \"100000\",\r\n    \"eb_expediting_expense_sublimit\": \"50000\",\r\n    \"insurers_coinsurance\": \"1\",\r\n    \"monthly_limitation\": \"1/3\",\r\n    \"earthquake_coverage\": \"Yes\",\r\n    \"special_perils\": \"Yes\",\r\n    \"broad_perils\": \"Yes\",\r\n    \"equipment_breakdown\": \"Yes\",\r\n    \"flood_coverage\": \"Yes\",\r\n    \"all_other_deductible\": \"5000\",\r\n    \"earthquake_deductible\": \"0.1\",\r\n    \"flood_deductible\": \"0.1\",\r\n    \"business_interruption_deductible_in_days\": \"30\",\r\n    \"equipment_breakdown_deductible_in_dollars\": \"75000\",\r\n    \"soft_cost__extra_expense_deductible\": \"10\",\r\n    \"percent_exposure\": \"1\",\r\n     \"company_loss_cost_multiplier\": \"1\",\r\n    \"rr_limit\": \"150000\",\r\n    \"rr_deductible\": \"6000\",\r\n    \"rr_amt_of_insurance\": \"1.55\",\r\n    \"rr_claim_multiplier\": \"3\",\r\n    \"rr_broler_fees\": 0.2,\r\n    \"territory\": 141,\r\n    \"eq_rate_group\": 2,\r\n    \"susceptibility_code\": \"A\",\r\n    \"which_set_of_loss_costs_to_be_used_toggle\": \"Ordinary Class basis\",\r\n    \"equipment_risk_level\": \"Medium\",\r\n    \"age_of_eqpt\": \"greater than 25 years\",\r\n    \"wind_zone\": \"Zone 2\",\r\n    \"ice_zone\": \"Zone 3\",\r\n    \"flood_zone\": \"Zone A, V, and D\",\r\n    \"flood_epossure\": \"High\",\r\n    \"fire_construction_factor\": 1,\r\n    \"class_code\": \"30500\"\r\n}"
 						},
 						"url": {
-							"raw": "{{base_url}}/api/v1/quote",
+							"raw": "https://sunereum.sb.insillion.com/api/v1/quote",
+							"protocol": "https",
 							"host": [
-								"{{base_url}}"
+								"sunereum",
+								"sb",
+								"insillion",
+								"com"
 							],
 							"path": [
 								"api",
@@ -1381,9 +1433,13 @@
 							"raw": "{\r\n    \"nstp_id\": {{nstp_id}},\r\n    \"reason\": \"\",\r\n    \"ext_id\": \"\",\r\n    \"nstp_status\": \"approved\",\r\n    \"status_code\": \"\"\r\n}"
 						},
 						"url": {
-							"raw": "{{base_url}}/api/v1/qnstp/message",
+							"raw": "https://sunereum.sb.insillion.com/api/v1/qnstp/message",
+							"protocol": "https",
 							"host": [
-								"{{base_url}}"
+								"sunereum",
+								"sb",
+								"insillion",
+								"com"
 							],
 							"path": [
 								"api",

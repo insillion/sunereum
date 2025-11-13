@@ -84,7 +84,7 @@ Get proposal id from quote finalize api response.
 
 **Example Request Body**:
 
-` json
+``` json
 {
     "proposal_id": "PR000000000053",
     "customer_first_name": "Rio",
@@ -150,7 +150,7 @@ Get proposal id from quote finalize api response.
     "__finalize": 1
 }
 
- `
+ ```
 
 #### Sample Response Format
 
@@ -175,7 +175,7 @@ On a successful request, the API will return a JSON response with the following 
 
 **Example Response**:
 
-` json
+``` json
 {
     "status": 0,
     "data": [
@@ -1613,7 +1613,7 @@ On a successful request, the API will return a JSON response with the following 
     "txt": "Proposal submitted successfully"
 }
 
- `
+ ```
 
 ### Notes
 

@@ -30,7 +30,7 @@ Get payment id from proposal finalize api responce.
 
 ### Expected Response
 
-
+```json
 {
     "status": 0,
     "data": [
@@ -1572,7 +1572,9 @@ Get payment id from proposal finalize api responce.
         }
     ],
     "txt": "Payment completed"
-}
+} 
+
+```
 
 On a successful request, the API will return a response indicating the status of the cash payment addition. The response format will typically include a confirmation message and may also include additional details related to the transaction.
 

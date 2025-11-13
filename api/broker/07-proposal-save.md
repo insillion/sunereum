@@ -84,7 +84,7 @@ The request body must be in JSON format and should include the following fields:
 
 **Example Request Body**:
 
-` json
+``` json
 {
     "proposal_id": "PR000000000053",
     "customer_first_name": "Rio",
@@ -149,7 +149,7 @@ The request body must be in JSON format and should include the following fields:
     "percent_exposure": "1"
 }
 
- `
+ ```
 
 #### Sample Response Format
 
@@ -174,7 +174,7 @@ On a successful request, the API will return a JSON response with the following 
 
 **Example Response**:
 
-` json
+``` json
 {
     "status": 0,
     "txt": "",
@@ -1613,7 +1613,7 @@ On a successful request, the API will return a JSON response with the following 
     ]
 }
 
-`
+```
 
 ### Notes
 
