@@ -1,6 +1,6 @@
 ### API Endpoint: View Quote
 
-This endpoint retrieves the details of a specific insurance policy based on the provided `quote_id`.
+This endpoint retrieves the details of a specific insurance policy based on the given `quote_id`.
 
 ### Request
 

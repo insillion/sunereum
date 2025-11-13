@@ -84,7 +84,7 @@ The request body must be in JSON format and should include the following fields:
 
 **Example Request Body**:
 
-` json
+``` json
    {
     "quote_id": "Q000000000131",
     "customer_first_name": "Rio",
@@ -174,7 +174,7 @@ On a successful request, the API will return a JSON response with the following 
 
 **Example Response**:
 
-` json
+``` json
 {
     "ready": false,
     "status": -113,
@@ -1062,7 +1062,7 @@ On a successful request, the API will return a JSON response with the following 
         }
     ]
 }
- `
+ ```
 
 
 

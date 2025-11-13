@@ -29,7 +29,7 @@ Get nstp id from quote api response.
 
 **Example Request Body**:
 
-` json
+``` json
 {
     "nstp_id": "N000000000146",
     "reason": "",
@@ -38,7 +38,7 @@ Get nstp id from quote api response.
     "status_code": ""
 }
 
- `
+ ```
 
 #### Sample Response Format
 
@@ -65,7 +65,7 @@ On a successful request, the API will return a JSON response with the following 
 
 **Example Response**:
 
-` json
+``` json
 {
     "status": 0,
     "data": [
@@ -1792,7 +1792,7 @@ On a successful request, the API will return a JSON response with the following 
     ],
     "txt": "Quotation converted to proposal successfully"
 }
-`
+```
 
 ### Notes
 

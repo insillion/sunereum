@@ -56,7 +56,7 @@ On a successful request, the API will return a JSON response with the following 
 
 **Example Response**:
 
-` json
+``` json
 {
     "status": 0,
     "txt": "",
@@ -912,4 +912,4 @@ On a successful request, the API will return a JSON response with the following 
     ]
 }
 
- `
+ ```
