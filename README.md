@@ -1,6 +1,5 @@
 # Sunereum Labs API Kit
 Insillion API Kit for 3rd party integration
-Contact [mailto:kamal@insillion.com] for detail
 
 # Sunereum Overview
 
