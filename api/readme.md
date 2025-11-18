@@ -5,7 +5,7 @@ Following APIs are available for integration:
 |:--:|:--:|:--|
 |1|[Auth](./broker/01-auth.md)| Authentication Request & Response|
 |2|[Quote-Save](./broker/02-quote-save.md)| Quote Save Request & Response|
-|3|[Existing-All-Risk-Insurance-Policy](./broker/03-Existing all-risk insurance policy)| Existing All Risk Insurance Policy Request & Response|
+|3|[Existing-All-Risk-Insurance-Policy](./broker/03-Existing-all-risk-insurance-policy.md)| Quote Save Request & Response|
 |4|[O&M Document](./broker/04-O&M-document.md)| O & M Document Request & Response|
 |5|[Loss Run](./broker/05-loss-runs-from-site-document.md)| Cash Loss Run Document Upload Request & Response|
 |6|[Quote Update & UW Referral](./broker/06-Quote-update-and-UW-referral.md)| View Policy response Request & Response|
