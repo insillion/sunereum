@@ -1,7 +1,7 @@
 {
 	"info": {
-		"_postman_id": "b40e14c9-7286-4998-989b-19350d6f0d60",
-		"name": "Sunereum R&R Rater  SB",
+		"_postman_id": "3d294403-b96f-4274-8c01-c8f3f3a402e2",
+		"name": "Sunereum R&R Rater",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -226,6 +226,125 @@
 								"api",
 								"v1",
 								"quote"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Existing all-risk insurance policy",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-GB,en-US;q=0.9,en;q=0.8"
+							},
+							{
+								"key": "Cache-Control",
+								"value": "no-cache"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive"
+							},
+							{
+								"key": "Content-Type",
+								"value": "multipart/form-data; boundary=----WebKitFormBoundaryGHAi0o12dJosafww"
+							},
+							{
+								"key": "Origin",
+								"value": "https://sunerum.cloware.in"
+							},
+							{
+								"key": "Pragma",
+								"value": "no-cache"
+							},
+							{
+								"key": "Referer",
+								"value": "https://sunerum.cloware.in/bb1/policy?policy_id=P000000000059"
+							},
+							{
+								"key": "Sec-Fetch-Dest",
+								"value": "empty"
+							},
+							{
+								"key": "Sec-Fetch-Mode",
+								"value": "cors"
+							},
+							{
+								"key": "Sec-Fetch-Site",
+								"value": "same-origin"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36"
+							},
+							{
+								"key": "in-auth-token",
+								"value": "{{token}}"
+							},
+							{
+								"key": "sec-ch-ua",
+								"value": "\"Not;A=Brand\";v=\"99\", \"Google Chrome\";v=\"139\", \"Chromium\";v=\"139\""
+							},
+							{
+								"key": "sec-ch-ua-mobile",
+								"value": "?0"
+							},
+							{
+								"key": "sec-ch-ua-platform",
+								"value": "\"Windows\""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "document_id",
+									"value": "{{document_id}}",
+									"type": "text"
+								},
+								{
+									"key": "document_type",
+									"value": "Existing all-risk insurance policy",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "0516000010.pdf",
+									"type": "text"
+								},
+								{
+									"key": "document_desc",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/D:/cl/0516000010.pdf"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://sunereum.sb.insillion.com/api/v1/document/attach",
+							"protocol": "https",
+							"host": [
+								"sunereum",
+								"sb",
+								"insillion",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"document",
+								"attach"
 							]
 						}
 					},
