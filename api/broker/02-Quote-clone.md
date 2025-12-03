@@ -1,39 +1,40 @@
-### API Endpoint: To upload O&M Cantract document
-
-This endpoint allows users to upload a Loss runs from the site document in our policy insurance .
-
+### API Endpoint: Clone Quote
+This endpoint allows users to clone an existing insurance quote based on its `quote_id`. It creates a new quote with the same details as the original, providing a convenient way to duplicate quote configurations.
 #### Request Format
-
 - **Method**: POST
     
-- **URL**: `{{base_url}}/api/v1/document/attach`
+- **URL**: `{{base_url}}/api/v1/quote/clone`
     
-- **Content-Type**: multipart/form-data; boundary=----WebKitFormBoundaryGHAi0o12dJosafww
+- **Content-Type**: application/json
     
+#### Headers
+- `in-auth-token` (string): An authentication token required for accessing the API.
+
+
+#### Important Note: Handling Cloned Quote IDs for Updates
+
+When the quote/clone API is successfully executed, it generates a new and distinct quote_id for the cloned quote. This new ID is typically derived from the original quote_id with a specific suffix. For example, if you clone a quote with quote_id Q000000000327, the cloned quote might receive an ID like Q0000000003271.001.
+
+To proceed with modifying this newly cloned quote (e.g., to update its details), you must use this specific cloned quote ID in any subsequent calls to the quote/save API (or similar update endpoints).
+
+Consequence of Not Using the Cloned ID:
+Failing to provide the correct cloned quote ID to the quote/save API will result in the quote/save endpoint creating an entirely new quote instead of updating the one you intended to modify.  
+
+
 
 #### Request Body
+The request body must be in JSON format and should include the following field:
+- `quote_id` (string) (Required): The identifier of the existing quote to be cloned.
+    
+**Example Request Body**:
+``` json
+{
+    "quote_id": "Q000000000327"
+}
 
-The request body must be in form data format and should include the following fields:
+```
 
-Get document id from quote api response.
-
-- `document_id` (string) (System Generated): Identifier for the document.
-- `document_type` (string) (Constant): The type or category of the document.
-- `name` (string): The filename of the document.
-- `document_desc` (string): A brief description of the document.
-- `file` (binary): Need to uplaod a document.
-
-**Example Bulk Edit Request Body**:
-
-` json
-document_id:DT000000000084
-document_type:Loss runs from the site
-name:0516000010.pdf
-document_desc:
-
- `
-
-#### SampleResponse Format
+#### Sample Response Format
 
 On a successful request, the API will return a JSON response with the following structure:
 
@@ -54,29 +55,24 @@ On a successful request, the API will return a JSON response with the following 
     - `quote`: An object containing detailed information about the quote, including customer information, coverage details, and more.
         
 
-**Example Response**:
-
+**Example Response Body**:
 ``` json
-{
-    "status": 0,
-    "txt": "",
-    "data": [
-        {
-            "policy_id": "P000000000131",
-            "product_id": "M000000000004",
-            "wf_id": 7,
+ {
+            "policy_id": "P000000000338",
+            "product_id": "M000000000005",
+            "wf_id": 8,
             "product_group_id": "PG000000000001",
             "par_product_id": "M000000000001",
-            "quote_id": "Q000000000131",
+            "quote_id": "Q0000000003271.003",
             "proposal_id": "",
             "discount_id": "",
-            "document_id": "DT000000000129",
+            "document_id": "DT000000000160",
             "nstp_id": "",
             "payment_id": "",
             "covernote_id": "",
             "inspect_id": "",
             "cart_id": "",
-            "uuid": "217aa681-6bc0-4e61-b544-48c184d116ec",
+            "uuid": "75c379cc-c35d-4675-9edd-e4a367800354",
             "customer_id": "",
             "policy_no": null,
             "quote_no": "",
@@ -117,26 +113,26 @@ On a successful request, the API will return a JSON response with the following 
             "broker_code": "123",
             "agent_code": "null",
             "status": 0,
-            "created_by": "broker@sunereum.cloware.in",
+            "created_by": "agent@insillion.com",
             "created_by_proxy": "",
-            "assigned_to": "broker@sunereum.cloware.in",
+            "assigned_to": "agent@insillion.com",
             "proxy": "",
-            "author": "broker@sunereum.cloware.in",
-            "ip": "10.81.234.138",
-            "c_ts": "2025-11-10 13:05:13",
-            "u_ts": "2025-11-10 13:05:13.410381",
-            "assigned_by": "broker@sunereum.cloware.in",
-            "assigned_at": "2025-11-10 13:05:13",
+            "author": "agent@insillion.com",
+            "ip": "proxy_add_x_forwarded_for",
+            "c_ts": "2025-12-03 12:20:31",
+            "u_ts": "2025-12-03 12:20:32.074549",
+            "assigned_by": "agent@insillion.com",
+            "assigned_at": "2025-12-03 12:20:31",
             "data": {},
             "quote": {
-                "quote_id": "Q000000000131",
-                "wf_id": 7,
-                "uuid": "875ee8ee-8101-4175-a50e-0acf4f978485",
+                "quote_id": "Q0000000003271.003",
+                "wf_id": 8,
+                "uuid": "04107ce5-73f9-4bd5-8182-b2560d0fbbd1",
                 "quote_no": null,
-                "par_quote_id": "",
+                "par_quote_id": "Q000000000327",
                 "parent_policy_no": "",
                 "customer_id": "",
-                "product_id": "M000000000004",
+                "product_id": "M000000000005",
                 "product_group_id": "PG000000000001",
                 "first_name": "",
                 "last_name": "",
@@ -146,12 +142,12 @@ On a successful request, the API will return a JSON response with the following 
                 "id_1_type": "",
                 "id_2": "",
                 "id_2_type": "",
-                "quote_date": "2025-11-10 13:05:13",
+                "quote_date": "2025-12-03 12:20:31",
                 "valid_till": null,
                 "cert_id": "",
                 "pdf_date": null,
                 "publish_date": null,
-                "premium_value": 1,
+                "premium_value": 0,
                 "total_tax": 0,
                 "nstp_enabled": "",
                 "qnstp_case": "No",
@@ -159,8 +155,8 @@ On a successful request, the API will return a JSON response with the following 
                 "tp_policy_no": "",
                 "tp_reason": "",
                 "status": 0,
-                "created_by": "broker@sunereum.cloware.in",
-                "policy_id": "P000000000131",
+                "created_by": "agent@insillion.com",
+                "policy_id": "P000000000338",
                 "cust_fld_1": "",
                 "cust_fld_2": "",
                 "cust_fld_3": "",
@@ -177,12 +173,67 @@ On a successful request, the API will return a JSON response with the following 
                 "agreed_on": null,
                 "agreed_by": "",
                 "proxy": "",
-                "author": "broker@sunereum.cloware.in",
-                "ip": "10.81.234.138",
-                "c_ts": "2025-11-10 13:05:13",
-                "u_ts": "2025-11-10 13:05:13.638572",
+                "author": "agent@insillion.com",
+                "ip": "proxy_add_x_forwarded_for",
+                "c_ts": "2025-12-03 12:20:31",
+                "u_ts": "2025-12-03 12:20:32.107651",
                 "data": {
-                    "product_id": "M000000000004",
+                    "quote_id": "Q0000000003271.003",
+                    "wf_id": 8,
+                    "product_id": "M000000000005",
+                    "product_name": "R & R Rater",
+                    "product_desc": "R & R Rater",
+                    "product_group_id": "PG000000000001",
+                    "par_product_id": "M000000000001",
+                    "combo_type": "",
+                    "product_group_name": "All LOB",
+                    "product_group_code": "ALOB",
+                    "catalog": [],
+                    "policywordings": [],
+                    "location_county": "Nassau",
+                    "construction_type": "Frame",
+                    "class_code": "30500",
+                    "coverage": "Contents",
+                    "property_still_under_construction": "No",
+                    "watchperson_service_availed": "Central Station",
+                    "extended_coverage": "Yes",
+                    "agent_email": "agent@insillion.com",
+                    "agent_last_login": "2025-05-07 07:07:22",
+                    "agent_first_name": "Agent",
+                    "agent_last_name": "",
+                    "agent_designation": "",
+                    "agent_alt_email": "",
+                    "agent_broker_code": "123",
+                    "agent_user_code": "",
+                    "agent_broker_id": "BR000000000001",
+                    "agent_underwriter": "",
+                    "agent_address": "",
+                    "agent_state": "",
+                    "agent_country": "",
+                    "agent_phone_no": "",
+                    "agent_mobile_no": "",
+                    "agent_two_f_a": "",
+                    "agent_two_f_a_key": "",
+                    "agent_zulip_id": "",
+                    "agent_name": "Agent",
+                    "agent_deposit_balance": "28861.1700",
+                    "agent_wflow_template": "",
+                    "agent_version": "1.24.2-rc.30",
+                    "agent_sandbox": "1",
+                    "broker_code": "123",
+                    "agent_code": "null",
+                    "user_code": "",
+                    "broker_id": "BR000000000001",
+                    "broker_name": "RR Broker",
+                    "broker_type": "",
+                    "broker_group_id": "G000000000005",
+                    "broker_address_1": "",
+                    "broker_address_2": "",
+                    "broker_phone_no_1": "",
+                    "broker_phone_no_2": "",
+                    "broker_deposit_balance_mode": "broker",
+                    "uuid": "2acd7f20-09e8-4c03-92cc-c9b0eb401dd6",
+                    "ip": "proxy_add_x_forwarded_for",
                     "customer_first_name": "Rio",
                     "customer_last_name": "R",
                     "customer_email": "rio@anc.com",
@@ -194,16 +245,11 @@ On a successful request, the API will return a JSON response with the following 
                     "company_state": "tamilnadu",
                     "company_postal_code": "400001",
                     "location_state": "New York",
-                    "coverage": "Contents",
-                    "property_still_under_construction": "No",
-                    "watchperson_service_availed": "Central Station",
-                    "extended_coverage": "Yes",
                     "location_city": "Nassau",
                     "location_site_number": "3453534",
                     "location_site_name": "Rio site",
                     "location_address_line1": "Rio add 1",
                     "location_address_line2": "Rio add 2",
-                    "location_county": "Nassau",
                     "location_zip": "11204",
                     "location_lat_long": "Lat long",
                     "commercial_operating_date": "10-11-2025",
@@ -229,7 +275,7 @@ On a successful request, the API will return a JSON response with the following 
                     "equipment_breakdown_limit": "100000",
                     "eb_expediting_expense_sublimit": "50000",
                     "insurers_coinsurance": "1",
-                    "monthly_limitation": "",
+                    "monthly_limitation": "1/3",
                     "earthquake_coverage": "Yes",
                     "special_perils": "Yes",
                     "broad_perils": "Yes",
@@ -242,126 +288,79 @@ On a successful request, the API will return a JSON response with the following 
                     "equipment_breakdown_deductible_in_dollars": "75000",
                     "soft_cost__extra_expense_deductible": "10",
                     "percent_exposure": "1",
-                    "product_name": "R & R Rater",
-                    "product_desc": "R & R Rater",
-                    "product_group_id": "PG000000000001",
-                    "par_product_id": "M000000000001",
-                    "wf_id": "7",
-                    "premium_value": 1,
-                    "combo_type": "",
-                    "product_group_name": "All LOB",
-                    "product_group_code": "ALOB",
-                    "catalog": [],
-                    "policywordings": [],
-                    "policy_id": "P000000000131",
-                    "construction_type": "Frame",
-                    "_ready": "1",
-                    "agent_email": "broker@sunereum.cloware.in",
-                    "agent_first_name": "",
-                    "agent_last_name": "",
-                    "agent_designation": "",
-                    "agent_alt_email": "",
-                    "agent_broker_code": "123",
-                    "agent_user_code": "",
-                    "agent_broker_id": "BR000000000001",
-                    "agent_underwriter": "",
-                    "agent_address": "",
-                    "agent_state": "",
-                    "agent_country": "",
-                    "agent_phone_no": "",
-                    "agent_mobile_no": "",
-                    "agent_zulip_id": "",
-                    "agent_name": "broker",
-                    "broker_code": "123",
-                    "agent_code": "null",
-                    "user_code": "",
-                    "broker_id": "BR000000000001",
-                    "broker_name": "Broker",
-                    "broker_type": "",
-                    "broker_group_id": "G000000000005",
-                    "broker_address_1": "",
-                    "broker_address_2": "",
-                    "broker_phone_no_1": "",
-                    "broker_phone_no_2": "",
-                    "broker_deposit_balance_mode": "broker",
-                    "uuid": "875ee8ee-8101-4175-a50e-0acf4f978485",
-                    "author": "broker@sunereum.cloware.in",
-                    "proxy": "",
-                    "ip": "10.81.234.138",
-                    "quote_id": "Q000000000131",
-                    "premium_calc_html_version": 16,
-                    "proposal_form_html_version": 16,
-                    "premium_calc_js_version": 16,
-                    "proposal_form_js_version": 16,
-                    "f_premium_value": " $1.00 ",
-                    "ar_basic_coverage_lc": "",
-                    "f_ar_basic_coverage_lc": "",
-                    "ar_special_perils_lc": 0,
-                    "f_ar_special_perils_lc": " $-   ",
-                    "ar_extended_coverage_lc": 0,
-                    "f_ar_extended_coverage_lc": " $-   ",
-                    "broad_peril_lc": 0,
-                    "f_broad_peril_lc": " $-   ",
-                    "total_commercial_property_lc": "",
-                    "f_total_commercial_property_lc": "",
+                    "premium_calc_html_version": 4,
+                    "proposal_form_html_version": 3,
+                    "premium_calc_js_version": 4,
+                    "proposal_form_js_version": 3,
+                    "f_premium_value": " $3,140 ",
+                    "ar_basic_coverage_lc": 1924.48,
+                    "f_ar_basic_coverage_lc": " $1,924.48 ",
+                    "ar_special_perils_lc": 73.24,
+                    "f_ar_special_perils_lc": " $73.24 ",
+                    "ar_extended_coverage_lc": 1127.19,
+                    "f_ar_extended_coverage_lc": " $1,127.19 ",
+                    "broad_peril_lc": 57.07,
+                    "f_broad_peril_lc": " $57.07 ",
+                    "total_commercial_property_lc": 3181.98,
+                    "f_total_commercial_property_lc": " $3,181.98 ",
                     "earthquake_rate": 1242,
                     "f_earthquake_rate": " $1,242.00 ",
                     "flood_coverage_rate": 2468.1,
                     "f_flood_coverage_rate": " $2,468.10 ",
-                    "total_all_risk_property_premium": "",
-                    "f_total_all_risk_property_premium": "",
-                    "rr_basic_coverage_lc": "",
-                    "f_rr_basic_coverage_lc": "",
-                    "rr_special_perils_lc": 0,
-                    "f_rr_special_perils_lc": " $-   ",
-                    "rr_extended_coverage_lc": 0,
-                    "f_rr_extended_coverage_lc": " $-   ",
-                    "rr_broad_peril_lc": 0,
-                    "f_rr_broad_peril_lc": " $-   ",
-                    "rr_total_commercial_property_lc": "",
-                    "f_rr_total_commercial_property_lc": "",
-                    "rr_earthquake_rate": 0,
-                    "f_rr_earthquake_rate": " $-   ",
-                    "rr_flood_coverage_rate": 0,
-                    "f_rr_flood_coverage_rate": " $-   ",
-                    "basic_coverage_mix": "",
-                    "f_basic_coverage_mix": "",
-                    "special_perils_mix": 0,
-                    "f_special_perils_mix": " -   ",
-                    "extended_coverage_mix": 0,
-                    "f_extended_coverage_mix": " -   ",
-                    "broad_perils_mix": 0,
-                    "f_broad_perils_mix": " -   ",
-                    "totoal_cp_mix": "",
-                    "f_totoal_cp_mix": "",
+                    "total_all_risk_property_premium": 6892.08,
+                    "f_total_all_risk_property_premium": " $6,892.08 ",
+                    "rr_basic_coverage_lc": 1383.4,
+                    "f_rr_basic_coverage_lc": " $1,383.40 ",
+                    "rr_special_perils_lc": 79.55,
+                    "f_rr_special_perils_lc": " $79.55 ",
+                    "rr_extended_coverage_lc": 1070.59,
+                    "f_rr_extended_coverage_lc": " $1,070.59 ",
+                    "rr_broad_peril_lc": 61.98,
+                    "f_rr_broad_peril_lc": " $61.98 ",
+                    "rr_total_commercial_property_lc": 2595.52,
+                    "f_rr_total_commercial_property_lc": " $2,595.52 ",
+                    "rr_earthquake_rate": 129.6,
+                    "f_rr_earthquake_rate": " $129.60 ",
+                    "rr_flood_coverage_rate": 414.72,
+                    "f_rr_flood_coverage_rate": " $414.72 ",
+                    "basic_coverage_mix": 0.1283,
+                    "f_basic_coverage_mix": "12.83%",
+                    "special_perils_mix": 0.0049,
+                    "f_special_perils_mix": "0.49%",
+                    "extended_coverage_mix": 0.0751,
+                    "f_extended_coverage_mix": "7.51%",
+                    "broad_perils_mix": 0.0038,
+                    "f_broad_perils_mix": "0.38%",
+                    "totoal_cp_mix": 0.2121,
+                    "f_totoal_cp_mix": "21.21%",
                     "eq_rate_mix": 0.0828,
-                    "f_eq_rate_mix": " 0.08 ",
+                    "f_eq_rate_mix": "8.28%",
                     "flood_coverage_mix": 0.1645,
-                    "f_flood_coverage_mix": " 0.16 ",
-                    "total_all_risk_property_mix": "",
-                    "f_total_all_risk_property_mix": "",
-                    "rr_basic_coverage_mix": "",
-                    "f_rr_basic_coverage_mix": "",
-                    "rr_special_perils_mix": "",
-                    "f_rr_special_perils_mix": "",
-                    "rr_extended_coverage_mix": "",
-                    "f_rr_extended_coverage_mix": "",
-                    "rr_broad_perils_mix": "",
-                    "f_rr_broad_perils_mix": "",
-                    "rr_total_cp_mix": "",
-                    "f_rr_total_cp_mix": "",
-                    "rr_earthquake_mix": "",
-                    "f_rr_earthquake_mix": "",
-                    "rr_flood_coverage_mix": "",
-                    "f_rr_flood_coverage_mix": "",
-                    "rr_pemium_mix": "",
-                    "f_rr_pemium_mix": "",
+                    "f_flood_coverage_mix": "16.45%",
+                    "total_all_risk_property_mix": 0.4595,
+                    "f_total_all_risk_property_mix": "45.95%",
+                    "rr_basic_coverage_mix": 0.9223,
+                    "f_rr_basic_coverage_mix": "92.23%",
+                    "rr_special_perils_mix": 0.053,
+                    "f_rr_special_perils_mix": "5.30%",
+                    "rr_extended_coverage_mix": 0.7137,
+                    "f_rr_extended_coverage_mix": "71.37%",
+                    "rr_broad_perils_mix": 0.0413,
+                    "f_rr_broad_perils_mix": "4.13%",
+                    "rr_total_cp_mix": 1.7303,
+                    "f_rr_total_cp_mix": "173.03%",
+                    "rr_earthquake_mix": 0.0864,
+                    "f_rr_earthquake_mix": "8.64%",
+                    "rr_flood_coverage_mix": 0.2765,
+                    "f_rr_flood_coverage_mix": "27.65%",
+                    "rr_pemium_mix": 2.0932,
+                    "f_rr_pemium_mix": "209.32%",
                     "mat_premium_summary": [
                         [
                             "Basic Coverage Loss Cost",
+                            1924.48,
                             "",
-                            "",
-                            ""
+                            0.1283
                         ],
                         [
                             "",
@@ -371,9 +370,9 @@ On a successful request, the API will return a JSON response with the following 
                         ],
                         [
                             "Special Perils Loss Cost",
+                            73.24,
                             "",
-                            "",
-                            ""
+                            0.0049
                         ],
                         [
                             "",
@@ -383,9 +382,9 @@ On a successful request, the API will return a JSON response with the following 
                         ],
                         [
                             "Extended Coverage Loss Cost",
+                            1127.19,
                             "",
-                            "",
-                            ""
+                            0.0751
                         ],
                         [
                             "",
@@ -395,9 +394,9 @@ On a successful request, the API will return a JSON response with the following 
                         ],
                         [
                             "Broad Peril Loss Cost",
+                            57.07,
                             "",
-                            "",
-                            ""
+                            0.0038
                         ],
                         [
                             "",
@@ -407,9 +406,9 @@ On a successful request, the API will return a JSON response with the following 
                         ],
                         [
                             "Total Commercial Property Loss Cost",
+                            3181.98,
                             "",
-                            "",
-                            ""
+                            0.2121
                         ],
                         [
                             "",
@@ -449,9 +448,9 @@ On a successful request, the API will return a JSON response with the following 
                         ],
                         [
                             "Total All Risk Property Premium",
+                            6892.08,
                             "",
-                            "",
-                            ""
+                            0.4595
                         ],
                         [
                             "",
@@ -467,9 +466,9 @@ On a successful request, the API will return a JSON response with the following 
                         ],
                         [
                             "Basic Coverage Loss Cost",
+                            1383.4,
                             "",
-                            "",
-                            ""
+                            0.9223
                         ],
                         [
                             "",
@@ -479,9 +478,9 @@ On a successful request, the API will return a JSON response with the following 
                         ],
                         [
                             "Special Perils Loss Cost",
+                            79.55,
                             "",
-                            "",
-                            ""
+                            0.053
                         ],
                         [
                             "",
@@ -491,9 +490,9 @@ On a successful request, the API will return a JSON response with the following 
                         ],
                         [
                             "Extended Coverage Loss Cost",
+                            1070.59,
                             "",
-                            "",
-                            ""
+                            0.7137
                         ],
                         [
                             "",
@@ -503,9 +502,9 @@ On a successful request, the API will return a JSON response with the following 
                         ],
                         [
                             "Broad Peril Loss Cost",
+                            61.98,
                             "",
-                            "",
-                            ""
+                            0.0413
                         ],
                         [
                             "",
@@ -515,9 +514,9 @@ On a successful request, the API will return a JSON response with the following 
                         ],
                         [
                             "Total Commercial Property Loss Cost",
+                            2595.52,
                             "",
-                            "",
-                            ""
+                            1.7303
                         ],
                         [
                             "",
@@ -527,9 +526,9 @@ On a successful request, the API will return a JSON response with the following 
                         ],
                         [
                             "Earthquake Rate",
+                            129.6,
                             "",
-                            "",
-                            ""
+                            0.0864
                         ],
                         [
                             "",
@@ -539,9 +538,9 @@ On a successful request, the API will return a JSON response with the following 
                         ],
                         [
                             "Flood Coverage Rate",
+                            414.72,
                             "",
-                            "",
-                            ""
+                            0.2765
                         ],
                         [
                             "",
@@ -556,69 +555,170 @@ On a successful request, the API will return a JSON response with the following 
                             ""
                         ],
                         [
-                            "Total R&R Premium (incl. admin and broker fees)",
-                            1,
+                            "Pre-tax and Fee R&R Premium",
+                            3139.84,
+                            "",
+                            2.0932
+                        ],
+                        [
+                            "",
+                            "",
+                            "",
+                            ""
+                        ],
+                        [
+                            "Admin Loading",
+                            627.97,
+                            "",
+                            ""
+                        ],
+                        [
+                            "",
+                            "",
+                            "",
+                            ""
+                        ],
+                        [
+                            "Broker Fee",
+                            627.97,
+                            "",
+                            ""
+                        ],
+                        [
+                            "",
+                            "",
+                            "",
+                            ""
+                        ],
+                        [
+                            "State Sales Tax",
+                            379.14,
+                            "",
+                            ""
+                        ],
+                        [
+                            "",
+                            "",
+                            "",
+                            ""
+                        ],
+                        [
+                            "Total R&R Premium",
+                            4774.92,
                             "",
                             ""
                         ]
                     ],
+                    "admin_loading": 627.97,
+                    "f_admin_loading": " $627.97 ",
+                    "broker_fee": 627.97,
+                    "f_broker_fee": " $627.97 ",
+                    "state_sales_tax": 379.14,
+                    "f_state_sales_tax": " $379.14 ",
+                    "total_rr_premium": 4774.92,
+                    "f_total_rr_premium": " $4,774.92 ",
                     "quote_valid": 1,
-                    "total_charges": 0,
+                    "total_charges": 1255.94,
                     "charges": {
-                        "total": 0,
+                        "total": 1255.94,
                         "tax_total": 0,
-                        "charge_parts": [],
+                        "charge_parts": [
+                            {
+                                "name": "Admin Loading",
+                                "value": 627.97,
+                                "rate": 1
+                            },
+                            {
+                                "name": "Broker Fee",
+                                "value": 627.97,
+                                "rate": 1
+                            }
+                        ],
                         "error": null
                     },
                     "tax_details": {
-                        "tax": 0,
-                        "tax_parts": [],
-                        "master": {},
-                        "error": ""
+                        "tax_master_id": "TM000000000006",
+                        "tax": 379.14,
+                        "tax_parts": [
+                            {
+                                "name": "State Sales Tax",
+                                "rate": 0,
+                                "value": 379.14,
+                                "amount": 3139.84,
+                                "absolute": false
+                            }
+                        ],
+                        "u_ts": "2025-11-24 12:38:28.406387"
                     },
-                    "total_tax": 0,
-                    "total_amount": "1.00",
-                    "nstp_enabled": "",
+                    "total_amount": "4774.92",
                     "error_count": 0,
                     "policy_start_time": null,
-                    "submission_priority": ""
+                    "submission_priority": "",
+                    "company_country": "test",
+                    "wind_zone": "Zone 2",
+                    "par_quote_id": "Q000000000327",
+                    "parent_policy_no": "",
+                    "customer_id": "",
+                    "first_name": "",
+                    "last_name": "",
+                    "email": "",
+                    "mobile_no": "",
+                    "id_1": "",
+                    "id_1_type": "",
+                    "id_2": "",
+                    "id_2_type": "",
+                    "status": 0,
+                    "created_by": "agent@insillion.com",
+                    "cust_fld_1": "",
+                    "cust_fld_2": "",
+                    "cust_fld_3": "",
+                    "cust_fld_4": "",
+                    "cust_fld_5": "",
+                    "cust_fld_6": "",
+                    "cust_fld_7": "",
+                    "cust_fld_8": "",
+                    "cust_fld_9": "",
+                    "cust_fld_10": "",
+                    "assigned_to": "agent@insillion.com",
+                    "assigned_by": "angel@sunereum.com",
+                    "policy_id": "P000000000338"
                 },
-                "assigned_to": "broker@sunereum.cloware.in",
-                "assigned_by": "broker@sunereum.cloware.in"
+                "assigned_to": "agent@insillion.com",
+                "assigned_by": "agent@insillion.com"
             },
             "document": {
-                "document_id": "DT000000000129",
+                "document_id": "DT000000000160",
                 "proposal_id": "",
-                "policy_id": "P000000000131",
-                "quote_id": "Q000000000131",
-                "product_id": "M000000000004",
-                "uuid": "8e626ad1-f234-43ad-82c1-7347abeab71a",
+                "policy_id": "P000000000338",
+                "quote_id": "Q0000000003271.003",
+                "product_id": "M000000000005",
+                "uuid": "f77a5535-6e1e-4040-930e-30d95b7e223c",
                 "quote_no": "",
-                "ready_state": 1,
-                "status_desc": "{\"Existing all-risk insurance policy\":\"not-uploaded\",\"As-built engineering drawings\":\"not-uploaded\",\"Active O&M contract\":\"uploaded\",\"Loss runs from the site\":\"uploaded\"}",
+                "ready_state": 0,
+                "status_desc": "{\"Existing all-risk insurance policy\":\"not-uploaded\",\"As-built engineering drawings\":\"not-uploaded\",\"Active O&M contract\":\"not-uploaded\",\"Loss runs from the site\":\"not-uploaded\"}",
                 "status": 0,
-                "created_by": "broker@sunereum.cloware.in",
-                "assigned_to": "broker@sunereum.cloware.in",
+                "created_by": "agent@insillion.com",
+                "assigned_to": "agent@insillion.com",
                 "proxy": "",
-                "author": "broker@sunereum.cloware.in",
-                "ip": "10.81.234.138",
-                "c_ts": "2025-11-10 13:05:13",
-                "u_ts": "2025-11-10 13:05:19.152736",
+                "author": "agent@insillion.com",
+                "ip": "proxy_add_x_forwarded_for",
+                "c_ts": "2025-12-03 12:20:31",
+                "u_ts": "2025-12-03 12:20:31.984519",
                 "data": {
-                    "policy_id": "P000000000131",
-                    "product_id": "M000000000004",
+                    "policy_id": "P000000000338",
+                    "product_id": "M000000000005",
                     "product_group_id": "PG000000000001",
                     "par_product_id": "M000000000001",
-                    "quote_id": "Q000000000131",
+                    "quote_id": "Q0000000003271.003",
                     "proposal_id": "",
                     "discount_id": "",
-                    "document_id": "DT000000000129",
+                    "document_id": "DT000000000160",
                     "nstp_id": "",
                     "payment_id": "",
                     "covernote_id": "",
                     "inspect_id": "",
                     "cart_id": "",
-                    "uuid": "8e626ad1-f234-43ad-82c1-7347abeab71a",
+                    "uuid": "f77a5535-6e1e-4040-930e-30d95b7e223c",
                     "customer_id": "",
                     "quote_no": "",
                     "proposal_no": "",
@@ -649,147 +749,65 @@ On a successful request, the API will return a JSON response with the following 
                     "cust_fld_10": "",
                     "broker_code": "",
                     "agent_code": "",
-                    "created_by": "broker@sunereum.cloware.in",
+                    "created_by": "agent@insillion.com",
                     "created_by_proxy": "",
-                    "assigned_to": "broker@sunereum.cloware.in",
+                    "assigned_to": "agent@insillion.com",
                     "proxy": "",
-                    "author": "broker@sunereum.cloware.in",
-                    "ip": "10.81.234.138",
-                    "c_ts": "2025-11-10 13:05:13",
-                    "u_ts": "2025-11-10 13:05:13.330843"
+                    "author": "agent@insillion.com",
+                    "ip": "proxy_add_x_forwarded_for",
+                    "c_ts": "2025-12-03 12:20:31",
+                    "u_ts": "2025-12-03 12:20:31.694915"
                 },
-                "details": [
-                    {
-                        "document_details_id": "DX000000000156",
-                        "document_id": "DT000000000129",
-                        "document_type": "Active O&M contract",
-                        "document_desc": "",
-                        "document_size": 96456,
-                        "name": "0516000010.pdf",
-                        "uuid": "24f9758b-c188-4558-9918-74f7158ead8c",
-                        "verified_by": "",
-                        "verified_on": null,
-                        "status": 0,
-                        "created_by": "broker@sunereum.cloware.in",
-                        "assigned_to": "",
-                        "proxy": "",
-                        "author": "broker@sunereum.cloware.in",
-                        "ip": "10.81.234.138",
-                        "c_ts": "2025-11-10 13:05:18",
-                        "u_ts": "2025-11-10 13:05:18.816449",
-                        "data": {
-                            "document_id": "DT000000000129",
-                            "document_type": "Active O&M contract",
-                            "document_desc": "",
-                            "document_size": 96456,
-                            "name": "0516000010.pdf",
-                            "uuid": "24f9758b-c188-4558-9918-74f7158ead8c",
-                            "status": 0,
-                            "author": "broker@sunereum.cloware.in",
-                            "proxy": "",
-                            "ip": "10.81.234.138",
-                            "document_details_id": "DX000000000156"
-                        }
-                    },
-                    {
-                        "document_details_id": "DX000000000157",
-                        "document_id": "DT000000000129",
-                        "document_type": "Loss runs from the site",
-                        "document_desc": "",
-                        "document_size": 96456,
-                        "name": "0516000010.pdf",
-                        "uuid": "a0383b6f-aabb-4dfb-bbf2-3cce0b18f2f5",
-                        "verified_by": "",
-                        "verified_on": null,
-                        "status": 0,
-                        "created_by": "broker@sunereum.cloware.in",
-                        "assigned_to": "",
-                        "proxy": "",
-                        "author": "broker@sunereum.cloware.in",
-                        "ip": "10.81.234.138",
-                        "c_ts": "2025-11-10 13:05:23",
-                        "u_ts": "2025-11-10 13:05:23.240170",
-                        "data": {
-                            "document_id": "DT000000000129",
-                            "document_type": "Loss runs from the site",
-                            "document_desc": "",
-                            "document_size": 96456,
-                            "name": "0516000010.pdf",
-                            "uuid": "a0383b6f-aabb-4dfb-bbf2-3cce0b18f2f5",
-                            "status": 0,
-                            "author": "broker@sunereum.cloware.in",
-                            "proxy": "",
-                            "ip": "10.81.234.138",
-                            "document_details_id": "DX000000000157"
-                        }
-                    }
-                ]
+                "details": []
             },
             "qnstp": {
-                "nstp_id": "N000000000146",
+                "nstp_id": "N000000000221",
                 "stage": "quote",
-                "policy_id": "P000000000131",
-                "product_id": "M000000000004",
+                "policy_id": "P000000000338",
+                "product_id": "M000000000005",
                 "product_group_id": "PG000000000001",
-                "quote_id": "Q000000000131",
+                "quote_id": "Q0000000003271.003",
                 "proposal_id": "",
-                "uuid": "1c40d7c5-0ca5-4f41-a244-abf11272e81f",
+                "uuid": "20b17b07-b07d-43c6-95d4-ab36f8fa45f6",
                 "premium_value": 0,
                 "nstp_enabled": "Yes",
-                "nstp_status": "",
+                "nstp_status": "approved",
                 "reason": "nstp-case w flag did not match Yes",
                 "status_code": "",
                 "status": 0,
-                "created_by": "broker@sunereum.cloware.in",
+                "created_by": "agent@insillion.com",
                 "created_by_proxy": "",
                 "assigned_to": "",
                 "proxy": "",
-                "author": "broker@sunereum.cloware.in",
-                "ip": "10.81.234.138",
-                "c_ts": "2025-11-10 13:05:13",
-                "u_ts": "2025-11-10 13:05:13.653816",
+                "author": "agent@insillion.com",
+                "ip": "proxy_add_x_forwarded_for",
+                "c_ts": "2025-12-03 12:20:32",
+                "u_ts": "2025-12-03 12:20:32.027212",
                 "data": {
-                    "policy_id": "P000000000131",
-                    "product_id": "M000000000004",
+                    "policy_id": "P000000000338",
+                    "product_id": "M000000000005",
                     "product_group_id": "PG000000000001",
-                    "quote_id": "Q000000000131",
+                    "quote_id": "Q0000000003271.003",
                     "proposal_id": "",
-                    "uuid": "1c40d7c5-0ca5-4f41-a244-abf11272e81f",
+                    "uuid": "20b17b07-b07d-43c6-95d4-ab36f8fa45f6",
                     "premium_value": 0,
                     "nstp_status": "approved",
                     "nstp_enabled": "Yes",
                     "reason": "nstp-case w flag did not match Yes",
-                    "created_by": "broker@sunereum.cloware.in",
+                    "created_by": "agent@insillion.com",
                     "created_by_proxy": "",
                     "stage": "quote",
                     "status": 0,
-                    "author": "broker@sunereum.cloware.in",
+                    "author": "agent@insillion.com",
                     "proxy": "",
-                    "ip": "10.81.234.138",
-                    "nstp_id": "N000000000146",
-                    "qnstp_id": "N000000000146"
+                    "ip": "proxy_add_x_forwarded_for",
+                    "nstp_id": "N000000000221",
+                    "qnstp_id": "N000000000221"
                 },
-                "qnstp_id": "N000000000146",
-                "details": [
-                    {
-                        "nstp_details_id": "ND000000000143",
-                        "nstp_id": "N000000000146",
-                        "uuid": "5b2ee9f7-f364-4bed-87b2-81b83aa9c50f",
-                        "reason": "quotation modified, unapproved",
-                        "ext_id": "",
-                        "nstp_status": "",
-                        "status": 0,
-                        "created_by": "broker@sunereum.cloware.in",
-                        "assigned_to": "",
-                        "proxy": "",
-                        "author": "broker@sunereum.cloware.in",
-                        "ip": "10.81.234.138",
-                        "c_ts": "2025-11-10 13:05:13",
-                        "u_ts": "2025-11-10 13:05:13.659979"
-                    }
-                ]
+                "qnstp_id": "N000000000221",
+                "details": []
             },
-            "qnstp_id": "N000000000146",
+            "qnstp_id": "N000000000221",
             "proposal": {
                 "proposal_id": "",
                 "data": {}
@@ -799,21 +817,21 @@ On a successful request, the API will return a JSON response with the following 
                 "data": {}
             },
             "policy": {
-                "policy_id": "P000000000131",
-                "product_id": "M000000000004",
-                "wf_id": 7,
+                "policy_id": "P000000000338",
+                "product_id": "M000000000005",
+                "wf_id": 8,
                 "product_group_id": "PG000000000001",
                 "par_product_id": "M000000000001",
-                "quote_id": "Q000000000131",
+                "quote_id": "Q0000000003271.003",
                 "proposal_id": "",
                 "discount_id": "",
-                "document_id": "DT000000000129",
+                "document_id": "DT000000000160",
                 "nstp_id": "",
                 "payment_id": "",
                 "covernote_id": "",
                 "inspect_id": "",
                 "cart_id": "",
-                "uuid": "217aa681-6bc0-4e61-b544-48c184d116ec",
+                "uuid": "75c379cc-c35d-4675-9edd-e4a367800354",
                 "customer_id": "",
                 "policy_no": null,
                 "quote_no": "",
@@ -854,82 +872,82 @@ On a successful request, the API will return a JSON response with the following 
                 "broker_code": "123",
                 "agent_code": "null",
                 "status": 0,
-                "created_by": "broker@sunereum.cloware.in",
+                "created_by": "agent@insillion.com",
                 "created_by_proxy": "",
-                "assigned_to": "broker@sunereum.cloware.in",
+                "assigned_to": "agent@insillion.com",
                 "proxy": "",
-                "author": "broker@sunereum.cloware.in",
-                "ip": "10.81.234.138",
-                "c_ts": "2025-11-10 13:05:13",
-                "u_ts": "2025-11-10 13:05:13.410381",
+                "author": "agent@insillion.com",
+                "ip": "proxy_add_x_forwarded_for",
+                "c_ts": "2025-12-03 12:20:31",
+                "u_ts": "2025-12-03 12:20:32.074549",
                 "data": {}
             },
             "stage_status": [
                 {
-                    "policy_id": "P000000000131",
+                    "policy_id": "P000000000338",
                     "stage": "document",
-                    "stage_index": 1,
-                    "status": "inprogress",
-                    "proxy": "",
-                    "author": "broker@sunereum.cloware.in",
-                    "ip": null,
-                    "c_ts": "2025-11-10 13:05:13",
-                    "u_ts": "2025-11-10 13:05:13.341872"
-                },
-                {
-                    "policy_id": "P000000000131",
-                    "stage": "payment",
-                    "stage_index": 6,
-                    "status": "",
-                    "proxy": "",
-                    "author": "broker@sunereum.cloware.in",
-                    "ip": null,
-                    "c_ts": "2025-11-10 13:05:13",
-                    "u_ts": "2025-11-10 13:05:13.341872"
-                },
-                {
-                    "policy_id": "P000000000131",
-                    "stage": "policy",
-                    "stage_index": 7,
-                    "status": "",
-                    "proxy": "",
-                    "author": "broker@sunereum.cloware.in",
-                    "ip": null,
-                    "c_ts": "2025-11-10 13:05:13",
-                    "u_ts": "2025-11-10 13:05:13.341872"
-                },
-                {
-                    "policy_id": "P000000000131",
-                    "stage": "proposal",
-                    "stage_index": 3,
-                    "status": "",
-                    "proxy": "",
-                    "author": "broker@sunereum.cloware.in",
-                    "ip": null,
-                    "c_ts": "2025-11-10 13:05:13",
-                    "u_ts": "2025-11-10 13:05:13.341872"
-                },
-                {
-                    "policy_id": "P000000000131",
-                    "stage": "qnstp",
                     "stage_index": 2,
                     "status": "inprogress",
                     "proxy": "",
-                    "author": "broker@sunereum.cloware.in",
+                    "author": "agent@insillion.com",
                     "ip": null,
-                    "c_ts": "2025-11-10 13:05:13",
-                    "u_ts": "2025-11-10 13:05:13.341872"
+                    "c_ts": "2025-12-03 12:20:31",
+                    "u_ts": "2025-12-03 12:20:31.791828"
                 },
                 {
-                    "policy_id": "P000000000131",
+                    "policy_id": "P000000000338",
+                    "stage": "payment",
+                    "stage_index": 5,
+                    "status": "",
+                    "proxy": "",
+                    "author": "agent@insillion.com",
+                    "ip": null,
+                    "c_ts": "2025-12-03 12:20:31",
+                    "u_ts": "2025-12-03 12:20:31.791828"
+                },
+                {
+                    "policy_id": "P000000000338",
+                    "stage": "policy",
+                    "stage_index": 6,
+                    "status": "",
+                    "proxy": "",
+                    "author": "agent@insillion.com",
+                    "ip": null,
+                    "c_ts": "2025-12-03 12:20:31",
+                    "u_ts": "2025-12-03 12:20:31.791828"
+                },
+                {
+                    "policy_id": "P000000000338",
+                    "stage": "proposal",
+                    "stage_index": 4,
+                    "status": "",
+                    "proxy": "",
+                    "author": "agent@insillion.com",
+                    "ip": null,
+                    "c_ts": "2025-12-03 12:20:31",
+                    "u_ts": "2025-12-03 12:20:31.791828"
+                },
+                {
+                    "policy_id": "P000000000338",
+                    "stage": "qnstp",
+                    "stage_index": 3,
+                    "status": "inprogress",
+                    "proxy": "",
+                    "author": "agent@insillion.com",
+                    "ip": null,
+                    "c_ts": "2025-12-03 12:20:31",
+                    "u_ts": "2025-12-03 12:20:31.791828"
+                },
+                {
+                    "policy_id": "P000000000338",
                     "stage": "quote",
                     "stage_index": 0,
                     "status": "inprogress",
                     "proxy": "",
-                    "author": "broker@sunereum.cloware.in",
+                    "author": "agent@insillion.com",
                     "ip": null,
-                    "c_ts": "2025-11-10 13:05:13",
-                    "u_ts": "2025-11-10 13:05:13.341872"
+                    "c_ts": "2025-12-03 12:20:31",
+                    "u_ts": "2025-12-03 12:20:31.791828"
                 }
             ],
             "stages": {
@@ -941,7 +959,5 @@ On a successful request, the API will return a JSON response with the following 
                 "quote": "inprogress"
             }
         }
-    ]
-}
 
- ```
+```
