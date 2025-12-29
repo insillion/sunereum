@@ -1,6 +1,6 @@
-## API Endpoint: Add Cash Payment
+## API Endpoint: Pay Via Cash Payment For Policy Issuance
 
-This endpoint allows users to add a cash payment to their account.
+This endpoint allows users to pay via cash to complete the payment journey.
 
 ### Request Method
 
