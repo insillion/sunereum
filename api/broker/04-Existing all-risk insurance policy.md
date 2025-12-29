@@ -1,4 +1,4 @@
-### API Endpoint: To upload O&M Cantract document
+### API Endpoint: To upload Existing All Risk Insurance Policy Document
 
 This endpoint allows users to upload a Existing all-risk insurance policy insurance .
 
