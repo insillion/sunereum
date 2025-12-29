@@ -1,4 +1,4 @@
-### API Endpoint: To update quote details and refer to UW
+### API Endpoint: To update quote details & Refer to UW
 
 This endpoint allows users to modify specific information within a client's quote and, because these modifications likely impact the risk assessment, premium the updated quote must then be submitted to an Underwriter (UW) for review, approval, and finalization.
 
