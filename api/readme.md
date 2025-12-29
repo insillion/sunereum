@@ -15,8 +15,8 @@ Following APIs are available for integration:
 |10|[View Quote](./broker/10-view-quote.md)| View Quote Request & Response|
 |11|[Cash Payment](./broker/11-cash-payment.md)| Proposal Cash Payment Request & Response|
 |12|[Generate Payment Link](./broker/12-Gen_pay-link.md)| Generate Payment Link|
-|13|[Download Quotet](./broker/13-Download-Quote-Pdf.md)| Download Quote Pdf |
-|14|[Download POlicy](./broker/14-Download-Policy.md)| Download Policy Pdf |
+|13|[Download Quote](./broker/13-Download-Quote-Pdf.md)| Download Quote Pdf |
+|14|[Download Policy](./broker/14-Download-Policy.md)| Download Policy Pdf |
 
 ### Underwriter
 
