@@ -1,6 +1,6 @@
-### API Endpoint: To upload O&M Cantract document
+### API Endpoint: To upload O&M document
 
-This endpoint allows users to upload a O&M cantract document in our policy insurance .
+This endpoint allows users to upload a O&M document in our policy insurance .
 
 #### Request Format
 
