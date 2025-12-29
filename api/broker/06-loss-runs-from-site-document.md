@@ -1,4 +1,4 @@
-### API Endpoint: To upload O&M Cantract document
+### API Endpoint: To upload Loss Runs Document
 
 This endpoint allows users to upload a Loss runs from the site document in our policy insurance .
 
