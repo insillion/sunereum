@@ -1,7 +1,7 @@
 {
 	"info": {
-		"_postman_id": "29edf3cf-e0fb-47e2-b0d5-8adcb0a066ad",
-		"name": "Sunereum R&R Rater Dec 25",
+		"_postman_id": "1303c0b0-c9b1-4f23-9b17-3522444a5119",
+		"name": "Sunereum R&R Rater Copy",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -115,7 +115,7 @@
 					"response": []
 				},
 				{
-					"name": "Quote clone",
+					"name": "Quote clane",
 					"event": [
 						{
 							"listen": "test",
@@ -1068,6 +1068,9 @@
 									"    postman.setEnvironmentVariable(\"nstp_id\", jsonData.data[0].qnstp.nstp_id);\r",
 									"    postman.setEnvironmentVariable(\"proposal_id\", jsonData.data[0].proposal_id);\r",
 									"    postman.setEnvironmentVariable(\"quote_no\", jsonData.data[0].quote_no);\r",
+									"     postman.setEnvironmentVariable(\"data_id\", jsonData.data[0].quote.data.quote12);\r",
+									"\r",
+									"     postman.setEnvironmentVariable(\"policy_data_id\", jsonData.data[0].policy.data.policy1);\r",
 									"}"
 								],
 								"type": "text/javascript"
@@ -1122,221 +1125,6 @@
 									"key": "x",
 									"value": "1"
 								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Proposal save",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json, text/plain, */*"
-							},
-							{
-								"key": "Accept-Language",
-								"value": "en-GB,en-US;q=0.9,en;q=0.8"
-							},
-							{
-								"key": "Cache-Control",
-								"value": "no-cache"
-							},
-							{
-								"key": "Connection",
-								"value": "keep-alive"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							},
-							{
-								"key": "Origin",
-								"value": "https://sunerum.cloware.in"
-							},
-							{
-								"key": "Pragma",
-								"value": "no-cache"
-							},
-							{
-								"key": "Referer",
-								"value": "https://sunerum.cloware.in/bb1/policy?policy_id=P000000000064"
-							},
-							{
-								"key": "Sec-Fetch-Dest",
-								"value": "empty"
-							},
-							{
-								"key": "Sec-Fetch-Mode",
-								"value": "cors"
-							},
-							{
-								"key": "Sec-Fetch-Site",
-								"value": "same-origin"
-							},
-							{
-								"key": "User-Agent",
-								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36"
-							},
-							{
-								"key": "in-auth-token",
-								"value": "{{token}}"
-							},
-							{
-								"key": "sec-ch-ua",
-								"value": "\"Not;A=Brand\";v=\"99\", \"Google Chrome\";v=\"139\", \"Chromium\";v=\"139\""
-							},
-							{
-								"key": "sec-ch-ua-mobile",
-								"value": "?0"
-							},
-							{
-								"key": "sec-ch-ua-platform",
-								"value": "\"Windows\""
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"proposal_id\": {{proposal_id}},\r\n    \"customer_first_name\": \"Rio\",\r\n    \"customer_last_name\": \"R\",\r\n    \"customer_email\": \"rio@anc.com\",\r\n    \"customer_phone\": \"9887989898\",\r\n    \"company_name\": \"Rio Company\",\r\n    \"comapany_address_line1\": \"r street\",\r\n    \"company_address_line2\": \"io post\",\r\n    \"company_city\": \"chennai\",\r\n    \"company_state\": \"tamilnadu\",\r\n    \"company_postal_code\": \"400001\",\r\n    \"location_state\": \"New York\",\r\n    \"coverage\": \"Contents\",\r\n    \"property_still_under_construction\": \"No\",\r\n    \"watchperson_service_availed\": \"Central Station\",\r\n    \"extended_coverage\": \"Yes\",\r\n    \"location_city\": \"Nassau\",\r\n     \"location_site_number\": \"3453534\",\r\n    \"location_site_name\": \"Rio site\",\r\n    \"location_address_line1\": \"Rio add 1\",\r\n    \"location_address_line2\": \"Rio add 2\",\r\n    \"location_county\": \"Nassau\",\r\n    \"location_zip\": \"11204\",\r\n    \"location_lat_long\": \"Lat long\",\r\n    \"commercial_operating_date\": \"10-11-2025\",\r\n    \"dc_mw\": \"DC\",\r\n    \"ac_mw\": \"AD\",\r\n    \"annual_output_mwh\": \"MWH\",\r\n    \"mounting_type\": \"tracker\",\r\n    \"inverter_make\": \"IM\",\r\n    \"module_make\": \"MM\",\r\n    \"oandm_provider\": \"O&M\",\r\n    \"property_tiv\": \"TIVP\",\r\n    \"annual_revenue_tiv\": \"TIVAR\",\r\n    \"primary_insurer\": \"Rio Raj\",\r\n    \"bi_waiting_period\": \"BI\",\r\n    \"notes\": \"Notes\",\r\n    \"panel_type\": \"Ground Mounted\",\r\n    \"theft\": \"Excluded\",\r\n    \"restoration_period_extension_in_days\": \"30\",\r\n    \"distance_for_fire_department_in_miles\":\"80\",\r\n    \"distance_from_the_fire_hydrant_in_feet\":\"888\",\r\n    \"waiting_period\": \"11-15 Days\",\r\n    \"optional_coverage\": \"Monthly Period of Indemnity\",\r\n    \"commercial_property\": \"1500000\",\r\n    \"business_interruption\": \"100000\",\r\n    \"equipment_breakdown_limit\": \"100000\",\r\n    \"eb_expediting_expense_sublimit\": \"50000\",\r\n    \"insurers_coinsurance\": \"1\",\r\n    \"earthquake_coverage\": \"Yes\",\r\n    \"special_perils\": \"Yes\",\r\n    \"broad_perils\": \"Yes\",\r\n    \"equipment_breakdown\": \"Yes\",\r\n    \"flood_coverage\": \"Yes\",\r\n    \"all_other_deductible\": \"5000\",\r\n    \"earthquake_deductible\": \"0.1\",\r\n    \"flood_deductible\": \"0.1\",\r\n    \"business_interruption_deductible_in_days\": \"30\",\r\n    \"equipment_breakdown_deductible_in_dollars\": \"75000\",\r\n    \"soft_cost__extra_expense_deductible\": \"10\",\r\n    \"percent_exposure\": \"1\"\r\n}"
-						},
-						"url": {
-							"raw": "https://sunereum.sb.insillion.com/api/v1/proposal",
-							"protocol": "https",
-							"host": [
-								"sunereum",
-								"sb",
-								"insillion",
-								"com"
-							],
-							"path": [
-								"api",
-								"v1",
-								"proposal"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Proposal finalize",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"const jsonData = pm.response.json();\r",
-									"\r",
-									"pm.test(pm.info.requestName + \" | Status: \" + jsonData.status + \" | \" + jsonData.txt, function () {\r",
-									"    pm.expect(jsonData.status).to.eql(0);\r",
-									"});\r",
-									"\r",
-									"if (!jsonData.status) {\r",
-									"    postman.setEnvironmentVariable(\"quote_id\", jsonData.data[0].quote_id);\r",
-									"    postman.setEnvironmentVariable(\"policy_id\", jsonData.data[0].policy_id);\r",
-									"    postman.setEnvironmentVariable(\"premium\", jsonData.data[0].quote.data.premium_value);\r",
-									"    //postman.setEnvironmentVariable(\"premium\", jsonData.data[0].quote.data.billed_premium\r",
-									"    postman.setEnvironmentVariable(\"first_name\", jsonData.data[0].quote.data.customer_first_name);\r",
-									"    postman.setEnvironmentVariable(\"last_name\", jsonData.data[0].quote.data.customer_last_name);\r",
-									"    postman.setEnvironmentVariable(\"payment_id\", jsonData.data[0].payment_id);\r",
-									"    postman.setEnvironmentVariable(\"total_amount\", jsonData.data[0].quote.data.total_amount);\r",
-									"    postman.setEnvironmentVariable(\"document_id\", jsonData.data[0].document.document_id);\r",
-									"    postman.setEnvironmentVariable(\"nstp_id\", jsonData.data[0].qnstp.nstp_id);\r",
-									"    postman.setEnvironmentVariable(\"final_premium\", jsonData.data[0].payment.premium_value);\r",
-									"    postman.setEnvironmentVariable(\"proposal_id\", jsonData.data[0].proposal_id);\r",
-									"    postman.setEnvironmentVariable(\"quote_no\", jsonData.data[0].quote_no);\r",
-									"}"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json, text/plain, */*"
-							},
-							{
-								"key": "Accept-Language",
-								"value": "en-GB,en-US;q=0.9,en;q=0.8"
-							},
-							{
-								"key": "Cache-Control",
-								"value": "no-cache"
-							},
-							{
-								"key": "Connection",
-								"value": "keep-alive"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							},
-							{
-								"key": "Origin",
-								"value": "https://sunerum.cloware.in"
-							},
-							{
-								"key": "Pragma",
-								"value": "no-cache"
-							},
-							{
-								"key": "Referer",
-								"value": "https://sunerum.cloware.in/bb1/policy?policy_id=P000000000064"
-							},
-							{
-								"key": "Sec-Fetch-Dest",
-								"value": "empty"
-							},
-							{
-								"key": "Sec-Fetch-Mode",
-								"value": "cors"
-							},
-							{
-								"key": "Sec-Fetch-Site",
-								"value": "same-origin"
-							},
-							{
-								"key": "User-Agent",
-								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36"
-							},
-							{
-								"key": "in-auth-token",
-								"value": "{{token}}"
-							},
-							{
-								"key": "sec-ch-ua",
-								"value": "\"Not;A=Brand\";v=\"99\", \"Google Chrome\";v=\"139\", \"Chromium\";v=\"139\""
-							},
-							{
-								"key": "sec-ch-ua-mobile",
-								"value": "?0"
-							},
-							{
-								"key": "sec-ch-ua-platform",
-								"value": "\"Windows\""
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"proposal_id\": {{proposal_id}},\r\n    \"customer_first_name\": \"Rio\",\r\n    \"customer_last_name\": \"R\",\r\n    \"customer_email\": \"rio@anc.com\",\r\n    \"customer_phone\": \"9887989898\",\r\n    \"company_name\": \"Rio Company\",\r\n    \"comapany_address_line1\": \"r street\",\r\n    \"company_address_line2\": \"io post\",\r\n    \"company_city\": \"chennai\",\r\n    \"company_state\": \"tamilnadu\",\r\n    \"company_postal_code\": \"400001\",\r\n    \"location_state\": \"New York\",\r\n    \"coverage\": \"Contents\",\r\n    \"property_still_under_construction\": \"No\",\r\n    \"watchperson_service_availed\": \"Central Station\",\r\n    \"extended_coverage\": \"Yes\",\r\n    \"location_city\": \"Nassau\",\r\n     \"location_site_number\": \"3453534\",\r\n    \"location_site_name\": \"Rio site\",\r\n    \"location_address_line1\": \"Rio add 1\",\r\n    \"location_address_line2\": \"Rio add 2\",\r\n    \"location_county\": \"Nassau\",\r\n    \"location_zip\": \"11204\",\r\n    \"location_lat_long\": \"Lat long\",\r\n    \"commercial_operating_date\": \"10-11-2025\",\r\n    \"dc_mw\": \"DC\",\r\n    \"ac_mw\": \"AD\",\r\n    \"annual_output_mwh\": \"MWH\",\r\n    \"mounting_type\": \"tracker\",\r\n    \"inverter_make\": \"IM\",\r\n    \"module_make\": \"MM\",\r\n    \"oandm_provider\": \"O&M\",\r\n    \"property_tiv\": \"TIVP\",\r\n    \"annual_revenue_tiv\": \"TIVAR\",\r\n    \"primary_insurer\": \"Rio Raj\",\r\n    \"bi_waiting_period\": \"BI\",\r\n    \"notes\": \"Notes\",\r\n    \"panel_type\": \"Ground Mounted\",\r\n    \"theft\": \"Excluded\",\r\n    \"restoration_period_extension_in_days\": \"30\",\r\n    \"distance_for_fire_department_in_miles\":\"80\",\r\n    \"distance_from_the_fire_hydrant_in_feet\":\"888\",\r\n    \"waiting_period\": \"11-15 Days\",\r\n    \"optional_coverage\": \"Monthly Period of Indemnity\",\r\n    \"commercial_property\": \"1500000\",\r\n    \"business_interruption\": \"100000\",\r\n    \"equipment_breakdown_limit\": \"100000\",\r\n    \"eb_expediting_expense_sublimit\": \"50000\",\r\n    \"insurers_coinsurance\": \"1\",\r\n    \"earthquake_coverage\": \"Yes\",\r\n    \"special_perils\": \"Yes\",\r\n    \"broad_perils\": \"Yes\",\r\n    \"equipment_breakdown\": \"Yes\",\r\n    \"flood_coverage\": \"Yes\",\r\n    \"all_other_deductible\": \"5000\",\r\n    \"earthquake_deductible\": \"0.1\",\r\n    \"flood_deductible\": \"0.1\",\r\n    \"business_interruption_deductible_in_days\": \"30\",\r\n    \"equipment_breakdown_deductible_in_dollars\": \"75000\",\r\n    \"soft_cost__extra_expense_deductible\": \"10\",\r\n    \"percent_exposure\": \"1\",\r\n    \"__finalize\": 1\r\n}"
-						},
-						"url": {
-							"raw": "https://sunereum.sb.insillion.com/api/v1/proposal",
-							"protocol": "https",
-							"host": [
-								"sunereum",
-								"sb",
-								"insillion",
-								"com"
-							],
-							"path": [
-								"api",
-								"v1",
-								"proposal"
 							]
 						}
 					},
@@ -1527,6 +1315,190 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "Download Quote Pdf",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-GB,en-US;q=0.9,en;q=0.8"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive"
+							},
+							{
+								"key": "Referer",
+								"value": "https://sunereum.sb.insillion.com/bb1/policy?policy_id=P000000000472&endorsements=1"
+							},
+							{
+								"key": "Sec-Fetch-Dest",
+								"value": "document"
+							},
+							{
+								"key": "Sec-Fetch-Mode",
+								"value": "navigate"
+							},
+							{
+								"key": "Sec-Fetch-Site",
+								"value": "same-origin"
+							},
+							{
+								"key": "Sec-Fetch-User",
+								"value": "?1"
+							},
+							{
+								"key": "Upgrade-Insecure-Requests",
+								"value": "1"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36"
+							},
+							{
+								"key": "sec-ch-ua",
+								"value": "\"Not;A=Brand\";v=\"99\", \"Google Chrome\";v=\"139\", \"Chromium\";v=\"139\""
+							},
+							{
+								"key": "sec-ch-ua-mobile",
+								"value": "?0"
+							},
+							{
+								"key": "sec-ch-ua-platform",
+								"value": "\"Windows\""
+							}
+						],
+						"url": {
+							"raw": "https://sunereum.sb.insillion.com/api/v1/quote/data/{{quote_id}}?data_id={{data_id}}&download=1&token={{doc_token}}",
+							"protocol": "https",
+							"host": [
+								"sunereum",
+								"sb",
+								"insillion",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"quote",
+								"data",
+								"{{quote_id}}"
+							],
+							"query": [
+								{
+									"key": "data_id",
+									"value": "{{data_id}}"
+								},
+								{
+									"key": "download",
+									"value": "1"
+								},
+								{
+									"key": "token",
+									"value": "{{doc_token}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Download Policy Pdf",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-GB,en-US;q=0.9,en;q=0.8"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive"
+							},
+							{
+								"key": "Referer",
+								"value": "https://sunereum.sb.insillion.com/bb1/policy?policy_id=P000000000494&endorsements=1"
+							},
+							{
+								"key": "Sec-Fetch-Dest",
+								"value": "document"
+							},
+							{
+								"key": "Sec-Fetch-Mode",
+								"value": "navigate"
+							},
+							{
+								"key": "Sec-Fetch-Site",
+								"value": "same-origin"
+							},
+							{
+								"key": "Sec-Fetch-User",
+								"value": "?1"
+							},
+							{
+								"key": "Upgrade-Insecure-Requests",
+								"value": "1"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36"
+							},
+							{
+								"key": "sec-ch-ua",
+								"value": "\"Not;A=Brand\";v=\"99\", \"Google Chrome\";v=\"139\", \"Chromium\";v=\"139\""
+							},
+							{
+								"key": "sec-ch-ua-mobile",
+								"value": "?0"
+							},
+							{
+								"key": "sec-ch-ua-platform",
+								"value": "\"Windows\""
+							}
+						],
+						"url": {
+							"raw": "https://sunereum.sb.insillion.com/api/v1/policy/data/{{policy_id}}?data_id={{policy_data_id}}&download=1&token={{doc_token}}",
+							"protocol": "https",
+							"host": [
+								"sunereum",
+								"sb",
+								"insillion",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"policy",
+								"data",
+								"{{policy_id}}"
+							],
+							"query": [
+								{
+									"key": "data_id",
+									"value": "{{policy_data_id}}"
+								},
+								{
+									"key": "download",
+									"value": "1"
+								},
+								{
+									"key": "token",
+									"value": "{{doc_token}}"
+								}
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
@@ -1541,7 +1513,9 @@
 							"script": {
 								"exec": [
 									"\r",
-									"postman.setEnvironmentVariable(\"token\", JSON.parse(responseBody).data.token);"
+									"postman.setEnvironmentVariable(\"token\", JSON.parse(responseBody).data.token);\r",
+									"\r",
+									"postman.setEnvironmentVariable(\"doc_token\", encodeURIComponent(JSON.parse(responseBody).data.token));"
 								],
 								"type": "text/javascript"
 							}
@@ -1907,6 +1881,35 @@
 				},
 				{
 					"name": "Approve",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const jsonData = pm.response.json();\r",
+									"\r",
+									"pm.test(pm.info.requestName + \" | Status: \" + jsonData.status + \" | \" + jsonData.txt, function () {\r",
+									"    pm.expect(jsonData.status).to.eql(0);\r",
+									"});\r",
+									"\r",
+									"if (!jsonData.status) {\r",
+									"    postman.setEnvironmentVariable(\"quote_id\", jsonData.data[0].quote_id);\r",
+									"    postman.setEnvironmentVariable(\"policy_id\", jsonData.data[0].policy_id);\r",
+									"    postman.setEnvironmentVariable(\"premium\", jsonData.data[0].quote.data.premium_value);\r",
+									"    //postman.setEnvironmentVariable(\"premium\", jsonData.data[0].quote.data.billed_premium\r",
+									"    postman.setEnvironmentVariable(\"first_name\", jsonData.data[0].quote.data.customer_first_name);\r",
+									"    postman.setEnvironmentVariable(\"last_name\", jsonData.data[0].quote.data.customer_last_name);\r",
+									"    postman.setEnvironmentVariable(\"payment_id\", jsonData.data[0].payment_id);\r",
+									"    postman.setEnvironmentVariable(\"total_amount\", jsonData.data[0].quote.data.total_amount);\r",
+									"    postman.setEnvironmentVariable(\"document_id\", jsonData.data[0].document.document_id);\r",
+									"    postman.setEnvironmentVariable(\"nstp_id\", jsonData.data[0].qnstp.nstp_id);\r",
+									"    postman.setEnvironmentVariable(\"data_id\", jsonData.data[0].quote.data.quote12);\r",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "POST",
 						"header": [
@@ -1993,6 +1996,98 @@
 								"v1",
 								"qnstp",
 								"message"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Download Quote Pdf",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-GB,en-US;q=0.9,en;q=0.8"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive"
+							},
+							{
+								"key": "Referer",
+								"value": "https://sunereum.sb.insillion.com/bb1/policy?policy_id=P000000000472&endorsements=1"
+							},
+							{
+								"key": "Sec-Fetch-Dest",
+								"value": "document"
+							},
+							{
+								"key": "Sec-Fetch-Mode",
+								"value": "navigate"
+							},
+							{
+								"key": "Sec-Fetch-Site",
+								"value": "same-origin"
+							},
+							{
+								"key": "Sec-Fetch-User",
+								"value": "?1"
+							},
+							{
+								"key": "Upgrade-Insecure-Requests",
+								"value": "1"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36"
+							},
+							{
+								"key": "sec-ch-ua",
+								"value": "\"Not;A=Brand\";v=\"99\", \"Google Chrome\";v=\"139\", \"Chromium\";v=\"139\""
+							},
+							{
+								"key": "sec-ch-ua-mobile",
+								"value": "?0"
+							},
+							{
+								"key": "sec-ch-ua-platform",
+								"value": "\"Windows\""
+							}
+						],
+						"url": {
+							"raw": "https://sunereum.sb.insillion.com/api/v1/quote/data/{{quote_id}}?data_id={{data_id}}&download=1&token={{doc_token}}",
+							"protocol": "https",
+							"host": [
+								"sunereum",
+								"sb",
+								"insillion",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"quote",
+								"data",
+								"{{quote_id}}"
+							],
+							"query": [
+								{
+									"key": "data_id",
+									"value": "{{data_id}}"
+								},
+								{
+									"key": "download",
+									"value": "1"
+								},
+								{
+									"key": "token",
+									"value": "{{doc_token}}"
+								}
 							]
 						}
 					},
